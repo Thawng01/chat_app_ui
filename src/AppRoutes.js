@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Chat from "./pages/Chat";
 import Home from "./pages/Home";
-import User from "./pages/User";
 
 const AppRoutes = () => {
     return (

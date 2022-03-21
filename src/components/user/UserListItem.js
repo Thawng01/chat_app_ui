@@ -16,7 +16,7 @@ const UserListItem = ({ user }) => {
 
     return (
         <div className="user-list-item" onClick={handleNavigate}>
-            <img className="user-list-item-img" />
+            <img className="user-list-item-img" alt="user-list" />
             <div className="user-list-item-detail-container">
                 <span className="user-list-item-username">{user.name}</span>
                 <div className="user-list-item-message-container">

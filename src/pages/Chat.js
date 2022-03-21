@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import "./chat.css";
 import Message from "../components/chat/Message";
@@ -7,7 +7,6 @@ import BackArrow from "../components/BackArrow";
 import useDimension from "../hook/useDimension";
 
 const Chat = () => {
-    const { user } = useParams();
     const location = useLocation();
     const widthDimension = useDimension();
     let getPath = location.pathname.includes("chat");
