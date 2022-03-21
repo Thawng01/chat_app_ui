@@ -1,0 +1,35 @@
+.message-item {
+    display: flex;
+    margin: 10px 5px;
+}
+
+.message-item-img {
+    background-color: antiquewhite;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.message-item-content-container {
+    margin: 0 7px;
+    max-width: 200px;
+}
+
+.message-item-content {
+    padding: 7px 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.message-item-created {
+    font-size: 11px;
+    color: gray;
+    margin-left: 20px;
+    font-style: italic;
+}
+
+@media screen and (min-width: 550px) {
+    .message-item-content-container {
+        max-width: 400px;
+    }
+}

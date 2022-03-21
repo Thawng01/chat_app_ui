@@ -1,0 +1,39 @@
+.back-arrow {
+    background-color: #fff;
+    height: 65px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.back-arrow-left {
+    display: flex;
+    align-items: center;
+}
+
+.back-arrow-icon {
+    font-size: 20px;
+}
+
+.chat-active-user-img {
+    height: 40px;
+    width: 40px;
+    background-color: gray;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.chat-active-username {
+    font-weight: 600;
+}
+
+@media screen and (min-width: 900px) {
+    .back-arrow {
+        display: none;
+    }
+}

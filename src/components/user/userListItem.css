@@ -1,0 +1,39 @@
+.user-list-item {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.user-list-item:hover {
+    background-color: aliceblue;
+}
+
+.user-list-item-img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+}
+
+.user-list-item-detail-container {
+    margin: 0 10px;
+    max-width: 250px;
+}
+
+.user-list-item-username {
+    font-weight: 600;
+}
+
+.user-list-item-message {
+    color: gray;
+    font-size: 13px;
+}
+
+.user-list-item-date {
+    color: gray;
+    font-size: 13px;
+    padding: 0 7px;
+}

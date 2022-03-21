@@ -1,0 +1,28 @@
+.user-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.user-header-img {
+    height: 60px;
+    width: 60px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+}
+
+.user-header-setting-container {
+    background-color: #f1f1f1;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.user-header-setting {
+    font-size: 20px;
+}

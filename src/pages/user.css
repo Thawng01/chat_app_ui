@@ -1,0 +1,13 @@
+.user {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100vh;
+}
+
+@media screen and (min-width: 900px) {
+    .user {
+        flex: 0.3;
+        height: calc(100vh - 65px);
+    }
+}

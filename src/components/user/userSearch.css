@@ -1,0 +1,27 @@
+.user-search {
+    padding: 6px 15px;
+}
+
+.user-search-container {
+    background-color: #f1f1f1;
+    padding: 6px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.user-search-icon {
+    font-size: 19px;
+    color: var(--primary);
+}
+
+.user-search-input {
+    width: 100%;
+    padding: 5px;
+    background-color: inherit;
+    border: none;
+}
+
+.user-search-input:focus {
+    outline: none;
+}
