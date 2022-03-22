@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 0px;
+    position: relative;
 }
 
 .user-header-img {
@@ -14,8 +15,8 @@
 
 .user-header-setting-container {
     background-color: #f1f1f1;
-    height: 35px;
-    width: 35px;
+    height: var(--icon-width);
+    width: var(--icon-width);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -25,4 +26,5 @@
 
 .user-header-setting {
     font-size: 20px;
+    color: var(--primary);
 }

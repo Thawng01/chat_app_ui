@@ -1,0 +1,9 @@
+.modal-sub-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-sub-item:hover {
+    background-color: aliceblue;
+}

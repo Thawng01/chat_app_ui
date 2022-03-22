@@ -1,0 +1,35 @@
+.user-header-modal-item {
+    padding: 5px 10px;
+    margin: 7px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.user-header-modal-item:hover {
+    background-color: aliceblue;
+}
+
+.user-header-modal-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-header-modal-icon-inner-container {
+    width: 35px;
+    height: 35px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 7px;
+}
+
+.user-header-modal-icon {
+    font-size: 20px;
+    color: var(--primary);
+}

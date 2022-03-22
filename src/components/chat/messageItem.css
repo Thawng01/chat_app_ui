@@ -1,6 +1,6 @@
 .message-item {
     display: flex;
-    margin: 10px 5px;
+    margin: 5px 0px;
 }
 
 .message-item-img {
@@ -8,11 +8,12 @@
     height: 40px;
     width: 40px;
     border-radius: 50%;
+    margin-right: 6px;
 }
 
 .message-item-content-container {
-    margin: 0 7px;
-    max-width: 200px;
+    max-width: 250px;
+    margin-top: 10px;
 }
 
 .message-item-content {

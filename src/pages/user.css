@@ -3,7 +3,7 @@
     flex: 1;
     flex-direction: column;
     height: 100vh;
-    padding: 0 0;
+    padding: 0 10px;
     overflow: auto;
 }
 
@@ -20,11 +20,5 @@
 
     .user-header-body-wrapper {
         height: calc(100vh - 145px);
-    }
-}
-
-@media screen and (min-width: 450px) {
-    .user {
-        padding: 0 5px;
     }
 }

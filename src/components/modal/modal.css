@@ -1,0 +1,85 @@
+.user-header-modal {
+    position: absolute;
+    top: 65px;
+    right: 0px;
+    width: 80%;
+    padding: 10px 0;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: height 400ms ease;
+    -webkit-box-shadow: 0px 0px 13px -8px rgba(0, 0, 0, 0.66);
+    box-shadow: 0px 0px 13px -8px rgba(0, 0, 0, 0.66);
+}
+
+.main {
+    width: 100%;
+}
+
+.main-enter {
+    position: absolute;
+    transform: translateX(-110%);
+}
+
+.main-enter-active {
+    transform: translateX(0%);
+    transition: all 300ms ease;
+}
+
+.main-exit {
+    position: absolute;
+}
+
+.main-exit-active {
+    transform: translateX(-110%);
+    transition: all 300ms ease;
+}
+
+.main-enter-done {
+    transform: translateX(0%);
+}
+
+/* sub main */
+
+.sub-main {
+    width: 100%;
+}
+
+.sub-main-enter {
+    position: absolute;
+    transform: translateX(110%);
+}
+
+.sub-main-enter-active {
+    transform: translateX(0%);
+    transition: all 300ms ease;
+}
+
+.sub-main-exit {
+    position: absolute;
+}
+
+.sub-main-exit-active {
+    transform: translateX(110%);
+    transition: all 300ms ease;
+}
+
+.sub-main-enter-done {
+    transform: translateX(0%);
+}
+
+.sub-main-arrow-back {
+    background-color: #f1f1f1;
+    height: var(--icon-width);
+    width: var(--icon-width);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.sub-main-arrow-back-icon {
+    font-size: 20px;
+    color: var(--primary);
+}

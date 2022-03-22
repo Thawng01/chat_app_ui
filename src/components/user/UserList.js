@@ -37,8 +37,8 @@ const users = [
 const UserList = () => {
     return (
         <div className="user-list">
-            {users.map((user) => {
-                return <UserListItem key={user.id} user={user} />;
+            {users.map((user, index) => {
+                return <UserListItem key={user.id} user={user} index={index} />;
             })}
         </div>
     );
