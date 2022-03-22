@@ -18,8 +18,10 @@ const User = () => {
             }}
         >
             <UserHeader />
-            <UserSearch />
-            <UserList />
+            <div className="user-header-body-wrapper">
+                <UserSearch />
+                <UserList />
+            </div>
         </div>
     );
 };

@@ -1,16 +1,11 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./userListItem.css";
-import MyContext from "../Context";
 
 const UserListItem = ({ user }) => {
-    const { setIsSmall } = useContext(MyContext);
-
     const navigate = useNavigate();
 
     const handleNavigate = () => {
-        setIsSmall(true);
         navigate(`chat/${user.name}`);
     };
 

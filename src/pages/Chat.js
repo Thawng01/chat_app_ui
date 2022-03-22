@@ -20,6 +20,7 @@ const Chat = () => {
             }}
         >
             <BackArrow />
+
             <Message />
             <MessageInput />
         </div>

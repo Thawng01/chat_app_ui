@@ -1,7 +1,5 @@
 .user-list {
-    padding: 10px 15px;
-    height: 63vh;
-    overflow: auto;
+    padding: 10px 0px;
 }
 
 ::-webkit-scrollbar {

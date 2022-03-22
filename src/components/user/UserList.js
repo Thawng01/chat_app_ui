@@ -20,6 +20,18 @@ const users = [
         name: "Salai Lian",
         message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
     },
+
+    {
+        id: 7,
+        name: "Salai Lian",
+        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
+    },
+
+    {
+        id: 8,
+        name: "Salai Lian",
+        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
+    },
 ];
 
 const UserList = () => {
