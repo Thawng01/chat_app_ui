@@ -2,10 +2,10 @@ import "./modalItem.css";
 
 const ModalItem = ({ Icon, title, RightIcon, onClick }) => {
     return (
-        <div className="user-header-modal-item" onClick={onClick}>
-            <div className="user-header-modal-icon-container">
-                <div className="user-header-modal-icon-inner-container">
-                    <Icon className="user-header-modal-icon" />
+        <div className="modal-item" onClick={onClick}>
+            <div className="modal-item-container">
+                <div className="modal-item-icon-container">
+                    <Icon className="modal-item-icon" />
                 </div>
                 <span>{title}</span>
             </div>

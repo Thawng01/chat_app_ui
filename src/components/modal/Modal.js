@@ -1,9 +1,8 @@
-import { MdAccountCircle, MdLogout, MdNoAccounts } from "react-icons/md";
+import { MdAccountCircle, MdLogout } from "react-icons/md";
 import {
     IoSettingsOutline,
     IoArrowBackOutline,
     IoArrowForward,
-    IoMoonOutline,
 } from "react-icons/io5";
 import { animated, config, useSpring } from "react-spring";
 import { CSSTransition } from "react-transition-group";
@@ -12,10 +11,12 @@ import { useState } from "react";
 import "./modal.css";
 import ModalItem from "./ModalItem";
 import ModalSubItem from "./ModalSubItem";
+import { items } from "./item";
 
 const Modal = ({ isOpen }) => {
     const [inProp, setInProp] = useState("main");
     const [menuHeight, setMenuHeight] = useState(null);
+    const [data, setData] = useState(items);
 
     const { left } = useSpring({
         left: isOpen ? 60 : -400,
@@ -26,6 +27,18 @@ const Modal = ({ isOpen }) => {
         const height = el.offsetHeight + 20;
         setMenuHeight(height);
     }
+
+    const handleToggle = (item) => {
+        const { id } = item;
+        const element = data.find((item) => item.id === id);
+        let status = element.status;
+        if (status === true) {
+            element.status = false;
+        } else {
+            element.status = true;
+        }
+        setData((item) => [...item]);
+    };
 
     return (
         <animated.div
@@ -65,11 +78,15 @@ const Modal = ({ isOpen }) => {
                         onClick={() => setInProp("main")}
                     />
 
-                    <ModalSubItem Icon={IoMoonOutline} title="Change theme" />
-                    <ModalSubItem
-                        Icon={MdNoAccounts}
-                        title="Disable your account"
-                    />
+                    {data.map((item) => {
+                        return (
+                            <ModalSubItem
+                                key={item.id}
+                                item={item}
+                                onToggle={() => handleToggle(item)}
+                            />
+                        );
+                    })}
                 </div>
             </CSSTransition>
         </animated.div>

@@ -1,4 +1,4 @@
-.user-header-modal-item {
+.modal-item {
     padding: 5px 10px;
     margin: 7px;
     border-radius: 3px;
@@ -8,17 +8,17 @@
     cursor: pointer;
 }
 
-.user-header-modal-item:hover {
+.modal-item:hover {
     background-color: aliceblue;
 }
 
-.user-header-modal-icon-container {
+.modal-item-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.user-header-modal-icon-inner-container {
+.modal-item-icon-container {
     width: 35px;
     height: 35px;
     background-color: #f1f1f1;
@@ -29,7 +29,7 @@
     margin-right: 7px;
 }
 
-.user-header-modal-icon {
+.modal-item-icon {
     font-size: 20px;
     color: var(--primary);
 }

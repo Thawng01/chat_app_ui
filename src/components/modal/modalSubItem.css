@@ -1,9 +1,16 @@
-.modal-sub-item {
+.toggle {
+    width: 32px;
+    height: 20px;
+    border-radius: 30px;
+    margin-right: 10px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 500ms ease;
 }
 
-.modal-sub-item:hover {
-    background-color: aliceblue;
+.toggle-label {
+    position: absolute;
+    display: block;
+    font-size: 15px;
 }
