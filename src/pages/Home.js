@@ -7,9 +7,9 @@ import Header from "../components/Header";
 import SideContext from "../components/SideContext";
 
 const Home = () => {
-    const location = useLocation();
     const [activeIndex, setActiveIndex] = useState(null);
-    const [myHome, setMyHome] = useState(location.key);
+
+    const location = useLocation();
 
     return (
         <SideContext.Provider value={{ activeIndex, setActiveIndex }}>
