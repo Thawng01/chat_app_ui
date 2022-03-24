@@ -31,12 +31,12 @@
 }
 
 .user-list-item-username {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .user-list-item-message {
     color: gray;
-    font-size: 12.5px;
+    font-size: 13px;
 }
 
 .user-list-item-date {
