@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { IoSettingsOutline } from "react-icons/io5";
-import Modal from "../modal/Modal";
 
 import "./userHeader.css";
+import Modal from "../modal/Modal";
+import Icon from "../Icon";
+import Image from "../Image";
 
 const UserHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,15 +15,12 @@ const UserHeader = () => {
         }
     };
 
+    const handleClick = () => setIsOpen(!isOpen);
+
     return (
         <div className="user-header">
-            <div className="user-header-img" />
-            <div
-                className="user-header-setting-container"
-                onClick={() => setIsOpen(!isOpen)}
-            >
-                <IoSettingsOutline className="user-header-setting" />
-            </div>
+            <Image width={60} height={60} />
+            <Icon MyIcon={IoSettingsOutline} onClick={handleClick} />
 
             <Modal isOpen={isOpen} onCloseModal={handleCloseModal} />
         </div>

@@ -19,7 +19,7 @@
 @media screen and (min-width: 900px) {
     .search {
         height: calc(100vh - 65px);
-        top: 65px;
+        /* top: 65px; */
     }
 
     .search-container {

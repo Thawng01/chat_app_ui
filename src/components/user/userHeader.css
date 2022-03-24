@@ -4,26 +4,3 @@
     align-items: center;
     padding: 10px 0px;
 }
-
-.user-header-img {
-    height: 60px;
-    width: 60px;
-    background-color: #f1f1f1;
-    border-radius: 50%;
-}
-
-.user-header-setting-container {
-    background-color: #f1f1f1;
-    height: var(--icon-width);
-    width: var(--icon-width);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.user-header-setting {
-    font-size: 20px;
-    color: var(--primary);
-    cursor: pointer;
-}

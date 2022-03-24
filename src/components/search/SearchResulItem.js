@@ -1,5 +1,6 @@
 import "./searchResultItem.css";
 import useNavigation from "../../hook/useNavigation";
+import Image from "../Image";
 
 const SearchResultItem = ({ items }) => {
     const navigate = useNavigation();
@@ -15,7 +16,7 @@ const SearchResultItem = ({ items }) => {
                     className="search-result-item"
                     onClick={() => navigate(`/chat/${item.name}`)}
                 >
-                    <div className="search-result-item-img" />
+                    <Image width={55} height={55} />
                     <span className="search-result-item-username">
                         {item.name}
                     </span>

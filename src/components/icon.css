@@ -1,0 +1,16 @@
+.user-header-setting-container {
+    background-color: #f1f1f1;
+    height: var(--icon-width);
+    width: var(--icon-width);
+    border-radius: 50%;
+    margin-right: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-header-setting {
+    font-size: 20px;
+    color: var(--primary);
+    cursor: pointer;
+}

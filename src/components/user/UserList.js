@@ -8,7 +8,8 @@ const users = [
     {
         id: 4,
         name: "Salai Lian",
-        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
+        message:
+            "Hello nan dam maw? Kan nih kan dam lio a si ko e. A tha tuk e. Ngandam hi a tha bik ko e. Ma cu si ko e.",
     },
     {
         id: 5,

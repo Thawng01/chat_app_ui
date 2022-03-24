@@ -3,6 +3,7 @@ import { IoArrowBack, IoSearch, IoClose } from "react-icons/io5";
 
 import "./searchInput.css";
 import useNavigation from "../../hook/useNavigation";
+import Icon from "../Icon";
 
 const SearchInput = ({ onValueChange }) => {
     const [value, setValue] = useState("");
@@ -19,15 +20,11 @@ const SearchInput = ({ onValueChange }) => {
         onValueChange(e.target.value);
     };
     const handleClear = () => setValue("");
+    const handleNavigation = () => navigate(-1);
 
     return (
         <div className="search-inner-container">
-            <div
-                className="search-back-icon-container"
-                onClick={() => navigate(-1)}
-            >
-                <IoArrowBack className="search-back-icon" />
-            </div>
+            <Icon MyIcon={IoArrowBack} onClick={handleNavigation} />
             <div className="search-input-container">
                 <input
                     ref={ref}

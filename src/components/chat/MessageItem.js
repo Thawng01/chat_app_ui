@@ -1,6 +1,11 @@
-import React from "react";
 import "./messageItem.css";
+import useNaviagtion from "../../hook/useNavigation";
+import Image from "../Image";
+
 const MessageItem = ({ message }) => {
+    const navigate = useNaviagtion();
+    const handleNavigation = () => navigate("/profile");
+
     return (
         <div
             className="message-item"
@@ -8,7 +13,7 @@ const MessageItem = ({ message }) => {
                 justifyContent: message.current ? "flex-end" : "flex-start",
             }}
         >
-            {!message.current && <div className="message-item-img" />}
+            {!message.current && <Image onClick={handleNavigation} />}
             <div className="message-item-content-container">
                 <p
                     className="message-item-content"

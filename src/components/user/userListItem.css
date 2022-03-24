@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px;
+    padding: 6px;
     border-radius: 3px;
     cursor: pointer;
     position: relative;
@@ -16,22 +16,6 @@
 .user-list-item-container {
     display: flex;
     align-items: center;
-}
-
-.user-list-item-img {
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    background-color: #f1f1f1;
-}
-
-.user-list-item-detail-container {
-    margin: 0 7px;
-    max-width: 300px;
-}
-
-.user-list-item-username {
-    font-weight: 500;
 }
 
 .user-list-item-message {

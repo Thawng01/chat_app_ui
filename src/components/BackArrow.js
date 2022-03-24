@@ -2,6 +2,8 @@ import { IoArrowBack, IoEllipsisVertical } from "react-icons/io5";
 
 import "./backarrow.css";
 import useNavigation from "../hook/useNavigation";
+import Icon from "./Icon";
+import Image from "./Image";
 
 const BackArrow = ({ onIsOpen }) => {
     const navigate = useNavigation();
@@ -11,11 +13,8 @@ const BackArrow = ({ onIsOpen }) => {
     return (
         <div className="back-arrow">
             <div className="back-arrow-left">
-                <IoArrowBack
-                    className="back-arrow-icon"
-                    onClick={handleNavigate}
-                />
-                <div className="chat-active-user-img" />
+                <Icon MyIcon={IoArrowBack} onClick={handleNavigate} />
+                <Image />
                 <span className="chat-active-username">Lian</span>
             </div>
             <IoEllipsisVertical className="back-dot-icon" onClick={onIsOpen} />

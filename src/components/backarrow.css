@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px;
+    padding: 20px 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,18 +14,6 @@
 .back-arrow-left {
     display: flex;
     align-items: center;
-}
-
-.back-arrow-icon {
-    font-size: 22px;
-}
-
-.chat-active-user-img {
-    height: 40px;
-    width: 40px;
-    background-color: gray;
-    border-radius: 50%;
-    margin: 0 10px;
 }
 
 .chat-active-username {
