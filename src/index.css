@@ -6,12 +6,12 @@
 
 body {
     margin: 0;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 :root {
     --primary: #ff0080;
     --icon-width: 35px;
     --hover-color: aliceblue;
+    --speed: 500ms;
 }

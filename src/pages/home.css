@@ -13,7 +13,7 @@
 .my-home-enter-active {
     transform: translateX(0%);
     opacity: 1;
-    transition: all 500ms ease;
+    transition: all var(--speed) ease;
 }
 
 .my-home-exit {
@@ -24,11 +24,12 @@
 .my-home-exit-active {
     opacity: 0;
     transform: translateX(-110%);
-    transition: all 500ms ease;
+    transition: all var(--speed) ease;
 }
 
 .my-home-enter-done {
     transform: translateX(0%);
+    transition: all var(--speed) ease;
     opacity: 1;
 }
 
