@@ -9,7 +9,7 @@
 
 .main-enter-active {
     transform: translateX(0%);
-    transition: all 300ms ease;
+    transition: all var(--speed) ease;
 }
 
 .main-exit {
@@ -18,11 +18,12 @@
 
 .main-exit-active {
     transform: translateX(-110%);
-    transition: all 300ms ease;
+    transition: all var(--speed) ease;
 }
 
 .main-enter-done {
     transform: translateX(0%);
+    transition: all var(--speed) ease;
 }
 
 /* sub main */
@@ -38,7 +39,7 @@
 
 .sub-main-enter-active {
     transform: translateX(0%);
-    transition: all 300ms ease;
+    transition: all var(--speed) ease;
 }
 
 .sub-main-exit {
@@ -47,7 +48,7 @@
 
 .sub-main-exit-active {
     transform: translateX(110%);
-    transition: all 300ms ease;
+    transition: all var(--speed) ease;
 }
 
 .sub-main-enter-done {

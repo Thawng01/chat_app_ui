@@ -20,6 +20,7 @@
     padding: 7px 10px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    font-size: 15px;
 }
 
 .message-item-created {
