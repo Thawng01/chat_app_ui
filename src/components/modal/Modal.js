@@ -4,7 +4,7 @@ import {
     IoArrowBackOutline,
     IoArrowForward,
 } from "react-icons/io5";
-import { animated, config, useSpring } from "react-spring";
+
 import { CSSTransition } from "react-transition-group";
 import { useState } from "react";
 
@@ -12,16 +12,12 @@ import "./modal.css";
 import ModalItem from "./ModalItem";
 import ModalSubItem from "./ModalSubItem";
 import { items } from "./item";
+import ModalContainer from "./ModalContainer";
 
-const Modal = ({ isOpen }) => {
+const Modal = ({ isOpen, onCloseModal }) => {
     const [inProp, setInProp] = useState("main");
     const [menuHeight, setMenuHeight] = useState(null);
     const [data, setData] = useState(items);
-
-    const { left } = useSpring({
-        left: isOpen ? 60 : -400,
-        config: config.gentle,
-    });
 
     function calcHeight(el) {
         const height = el.offsetHeight + 20;
@@ -40,10 +36,15 @@ const Modal = ({ isOpen }) => {
         setData((item) => [...item]);
     };
 
+    const handleCloseModal = (e) => {
+        onCloseModal(e);
+    };
+
     return (
-        <animated.div
-            style={{ left, height: menuHeight }}
-            className="user-header-modal"
+        <ModalContainer
+            menuHeight={menuHeight}
+            isOpen={isOpen}
+            onCloseModal={handleCloseModal}
         >
             <CSSTransition
                 in={inProp === "main"}
@@ -89,7 +90,7 @@ const Modal = ({ isOpen }) => {
                     })}
                 </div>
             </CSSTransition>
-        </animated.div>
+        </ModalContainer>
     );
 };
 

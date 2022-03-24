@@ -1,28 +1,31 @@
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 import "./chat.css";
 import Message from "../components/chat/Message";
 import MessageInput from "../components/chat/MessageInput";
 import BackArrow from "../components/BackArrow";
-import useDimension from "../hook/useDimension";
+import ChatModal from "../components/modal/ChatModal";
+import Users from "../components/user/Users";
 
 const Chat = () => {
-    const location = useLocation();
-    const widthDimension = useDimension();
-    let getPath = location.pathname.includes("chat");
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleIsOpen = () => setIsOpen(!isOpen);
+    const handleCloseModal = (e) => {
+        if (isOpen) {
+            setIsOpen(false);
+        }
+    };
 
     return (
-        <div
-            className="chat"
-            style={{
-                display: widthDimension <= 900 && getPath ? "block" : "",
-                flex: widthDimension <= 900 && getPath ? 1 : "",
-            }}
-        >
-            <BackArrow />
-
-            <Message />
-            <MessageInput />
+        <div className="chat">
+            <Users />
+            <div className="chat-container">
+                <BackArrow onIsOpen={handleIsOpen} />
+                <ChatModal isOpen={isOpen} onCloseModal={handleCloseModal} />
+                <Message />
+                <MessageInput />
+            </div>
         </div>
     );
 };

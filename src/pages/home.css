@@ -1,12 +1,41 @@
 .home {
-    display: flex;
     height: 100vh;
-    overflow: hidden;
+    width: 100vw;
+}
+
+.my-home-enter {
+    transform: translateX(110%);
+    position: absolute;
+    top: 0;
+    opacity: 0;
+}
+
+.my-home-enter-active {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: all 500ms ease;
+}
+
+.my-home-exit {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.my-home-exit-active {
+    opacity: 0;
+    transform: translateX(-110%);
+    transition: all 500ms ease;
+}
+
+.my-home-enter-done {
+    transform: translateX(0%);
+    opacity: 1;
 }
 
 @media screen and (min-width: 900px) {
     .home {
         height: calc(100vh - 65px);
-        margin: 65px 10px 0px 10px;
+        margin-top: 65px;
+        padding: 0 6px;
     }
 }

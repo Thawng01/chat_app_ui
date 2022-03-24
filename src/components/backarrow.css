@@ -17,7 +17,7 @@
 }
 
 .back-arrow-icon {
-    font-size: 30px;
+    font-size: 22px;
 }
 
 .chat-active-user-img {
@@ -30,6 +30,11 @@
 
 .chat-active-username {
     font-weight: 600;
+}
+
+.back-dot-icon {
+    font-size: 20px;
+    color: var(--primary);
 }
 
 @media screen and (min-width: 900px) {

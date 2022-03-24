@@ -1,26 +1,13 @@
-import { useLocation } from "react-router-dom";
 import "./user.css";
-import UserHeader from "../components/user/UserHeader";
-import UserSearch from "../components/user/UserSearch";
-import UserList from "../components/user/UserList";
-import useDimension from "../hook/useDimension";
+
+import Users from "../components/user/Users";
 
 const User = () => {
-    const location = useLocation();
-    const widthDimension = useDimension();
-    let getPath = location.pathname.includes("chat");
-
     return (
-        <div
-            className="user"
-            style={{
-                display: widthDimension <= 900 && getPath ? "none" : "",
-            }}
-        >
-            <UserHeader />
-            <div className="user-header-body-wrapper">
-                <UserSearch />
-                <UserList />
+        <div className="user-container">
+            <Users />
+            <div className="user-chat-welcome">
+                <span>Welcome to chat box</span>
             </div>
         </div>
     );

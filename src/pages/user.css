@@ -1,24 +1,18 @@
-.user {
+.user-container {
     display: flex;
     flex: 1;
-    flex-direction: column;
-    height: 100vh;
-    padding: 0 10px;
-    overflow: auto;
 }
 
-.user-header-body-wrapper {
-    height: calc(100vh - 80px);
-    overflow: auto;
+.user-chat-welcome {
+    display: none;
+    background-color: #fff;
 }
 
 @media screen and (min-width: 900px) {
-    .user {
-        flex: 0.3;
-        height: calc(100vh - 65px);
-    }
-
-    .user-header-body-wrapper {
-        height: calc(100vh - 145px);
+    .user-chat-welcome {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0.7;
     }
 }

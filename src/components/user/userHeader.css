@@ -3,7 +3,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 0px;
-    position: relative;
 }
 
 .user-header-img {
@@ -21,10 +20,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
 }
 
 .user-header-setting {
     font-size: 20px;
     color: var(--primary);
+    cursor: pointer;
 }

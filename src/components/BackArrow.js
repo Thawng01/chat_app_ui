@@ -1,11 +1,10 @@
-import React from "react";
 import { IoArrowBack, IoEllipsisVertical } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
 
 import "./backarrow.css";
+import useNavigation from "../hook/useNavigation";
 
-const BackArrow = () => {
-    const navigate = useNavigate();
+const BackArrow = ({ onIsOpen }) => {
+    const navigate = useNavigation();
 
     const handleNavigate = () => navigate(-1);
 
@@ -19,7 +18,7 @@ const BackArrow = () => {
                 <div className="chat-active-user-img" />
                 <span className="chat-active-username">Lian</span>
             </div>
-            <IoEllipsisVertical className="back-dot-icon" />
+            <IoEllipsisVertical className="back-dot-icon" onClick={onIsOpen} />
         </div>
     );
 };

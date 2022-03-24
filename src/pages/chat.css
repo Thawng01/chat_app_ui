@@ -1,5 +1,11 @@
 .chat {
-    display: none;
+    display: flex;
+    flex: 1;
+}
+
+.chat-container {
+    display: flex;
+    flex: 1;
     flex-direction: column;
     margin-top: 65px;
     height: calc(100vh - 65px);
@@ -7,8 +13,7 @@
 }
 
 @media screen and (min-width: 900px) {
-    .chat {
-        display: flex;
+    .chat-container {
         flex: 0.7;
         justify-content: space-between;
         margin-top: 0;

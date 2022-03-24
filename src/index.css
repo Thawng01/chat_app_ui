@@ -13,4 +13,5 @@ body {
 :root {
     --primary: #ff0080;
     --icon-width: 35px;
+    --hover-color: aliceblue;
 }
