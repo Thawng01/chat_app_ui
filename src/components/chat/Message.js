@@ -40,6 +40,39 @@ const users = [
         name: "Salai Lian",
         message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
     },
+    {
+        id: 8,
+        name: "Salai Lian",
+        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
+    },
+    {
+        id: 9,
+        name: "Salai Lian",
+        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
+        current: true,
+    },
+    {
+        id: 10,
+        name: "Salai Lian",
+        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
+    },
+    {
+        id: 11,
+        name: "Salai Lian",
+        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
+        current: true,
+    },
+    {
+        id: 12,
+        name: "Salai Lian",
+        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
+    },
+    {
+        id: 13,
+        name: "Salai Lian",
+        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
+        current: true,
+    },
 ];
 
 const Message = () => {

@@ -1,0 +1,144 @@
+.auth {
+    background-image: url("/public/assets/wave.png");
+    background-repeat: no-repeat;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.auth-outer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.auth-text-container {
+    display: flex;
+    color: var(--primary);
+}
+
+.auth-text {
+    font-size: 25px;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    padding: 15px;
+    line-height: 50px;
+    text-align: center;
+    user-select: none;
+}
+
+.auth-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    height: 70vh;
+}
+
+/* auth form animation  */
+
+.auth-login,
+.auth-register {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+}
+
+.auth-login-enter {
+    opacity: 0;
+    transform: translateX(-110%);
+}
+
+.auth-login-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all var(--speed) ease;
+}
+
+.auth-login-exit {
+    position: absolute;
+}
+
+.auth-login-exit-active {
+    opacity: 0;
+    transform: translateX(-110%);
+    transition: all var(--speed) ease;
+}
+
+.auth-login-enter-done {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all var(--speed) ease;
+}
+
+.auth-register-enter {
+    position: absolute;
+    opacity: 0;
+    transform: translateX(110%);
+}
+
+.auth-register-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all var(--speed) ease;
+}
+
+.auth-register-exit {
+    position: absolute;
+}
+
+.auth-register-exit-active {
+    opacity: 0;
+    transform: translateX(110%);
+    transition: all var(--speed) ease;
+}
+
+.auth-register-enter-done {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all var(--speed) ease;
+}
+
+@media screen and (min-width: 900px) {
+    .auth-container {
+        width: 60%;
+        height: 70vh;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .auth-form-container {
+        height: 100%;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .auth-container {
+        flex-direction: row;
+        align-items: center;
+        /* justify-content: center; */
+    }
+
+    .auth-text-container {
+        flex: 0.5;
+    }
+
+    .auth-form-container {
+        justify-content: center;
+        flex: 0.5;
+    }
+}

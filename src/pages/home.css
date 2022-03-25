@@ -35,8 +35,6 @@
 
 @media screen and (min-width: 900px) {
     .home {
-        height: calc(100vh - 65px);
-        margin-top: 65px;
         padding: 0 6px;
     }
 }

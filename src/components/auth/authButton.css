@@ -1,0 +1,17 @@
+.auth-submit-btn {
+    background-color: var(--primary);
+    width: 90%;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: 600;
+    margin: 7px 0;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 430px) {
+    .auth-submit-btn {
+        width: 70%;
+    }
+}

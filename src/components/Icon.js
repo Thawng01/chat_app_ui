@@ -1,7 +1,11 @@
 import "./icon.css";
-const Icon = ({ onClick, MyIcon }) => {
+const Icon = ({ onClick, MyIcon, backgroundColor = "#fff" }) => {
     return (
-        <div className="user-header-setting-container" onClick={onClick}>
+        <div
+            style={{ backgroundColor }}
+            className="user-header-setting-container"
+            onClick={onClick}
+        >
             <MyIcon className="user-header-setting" />
         </div>
     );

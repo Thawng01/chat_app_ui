@@ -3,7 +3,6 @@ import { Outlet, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import "./home.css";
-import Header from "../components/Header";
 import SideContext from "../components/SideContext";
 
 const Home = () => {
@@ -13,7 +12,6 @@ const Home = () => {
 
     return (
         <SideContext.Provider value={{ activeIndex, setActiveIndex }}>
-            <Header />
             <TransitionGroup component={null}>
                 <CSSTransition
                     key={location.key}

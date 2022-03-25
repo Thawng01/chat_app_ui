@@ -1,4 +1,5 @@
 import React from "react";
+import Icon from "../Icon";
 
 import "./modalItem.css";
 import "./modalSubItem.css";
@@ -9,9 +10,7 @@ const ModalSubItem = ({ item, onToggle }) => {
     return (
         <div className="modal-item" onClick={onToggle}>
             <div className="modal-item-container">
-                <div className="modal-item-icon-container">
-                    <item.icon className="modal-item-icon" />
-                </div>
+                <Icon MyIcon={item.icon} backgroundColor="#f1f1f1" />
                 <span>{item.title}</span>
             </div>
             <div

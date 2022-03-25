@@ -8,16 +8,21 @@ import {
 import { CSSTransition } from "react-transition-group";
 import { useState } from "react";
 
-import "./modal.css";
+import "./userModal.css";
 import ModalItem from "./ModalItem";
 import ModalSubItem from "./ModalSubItem";
 import { items } from "./item";
 import ModalContainer from "./ModalContainer";
+import useNavigation from "../../hook/useNavigation";
 
-const Modal = ({ isOpen, onCloseModal }) => {
+const UserModal = ({ isOpen, onCloseModal }) => {
     const [inProp, setInProp] = useState("main");
     const [menuHeight, setMenuHeight] = useState(null);
     const [data, setData] = useState(items);
+
+    const navigate = useNavigation();
+
+    const handleLogout = () => navigate("/auth");
 
     function calcHeight(el) {
         const height = el.offsetHeight + 20;
@@ -54,14 +59,18 @@ const Modal = ({ isOpen, onCloseModal }) => {
                 onEnter={calcHeight}
             >
                 <div className="main">
-                    <ModalItem Icon={MdAccountCircle} title="Profile" />
+                    <ModalItem icon={MdAccountCircle} title="Profile" />
                     <ModalItem
-                        Icon={IoSettingsOutline}
+                        icon={IoSettingsOutline}
                         title="Setting"
                         RightIcon={IoArrowForward}
                         onClick={() => setInProp("sub-main")}
                     />
-                    <ModalItem Icon={MdLogout} title="Logout" />
+                    <ModalItem
+                        icon={MdLogout}
+                        title="Logout"
+                        onClick={handleLogout}
+                    />
                 </div>
             </CSSTransition>
 
@@ -74,7 +83,7 @@ const Modal = ({ isOpen, onCloseModal }) => {
             >
                 <div className="sub-main">
                     <ModalItem
-                        Icon={IoArrowBackOutline}
+                        icon={IoArrowBackOutline}
                         title="Back"
                         onClick={() => setInProp("main")}
                     />
@@ -94,4 +103,4 @@ const Modal = ({ isOpen, onCloseModal }) => {
     );
 };
 
-export default Modal;
+export default UserModal;

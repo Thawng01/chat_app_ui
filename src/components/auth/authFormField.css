@@ -1,0 +1,28 @@
+.auth-form-group {
+    margin: 5px 20px;
+    width: 90%;
+    position: relative;
+}
+
+.auth-form-group > label {
+    display: block;
+}
+
+.auth-form-input {
+    padding: 8px 10px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 1px solid gray;
+}
+
+.auth-form-input:focus {
+    outline: none;
+    border: 1.4px solid #000;
+}
+
+@media screen and (min-width: 430px) {
+    .auth-form-group {
+        width: 70%;
+    }
+}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./chat.css";
 import Message from "../components/chat/Message";
 import MessageInput from "../components/chat/MessageInput";
-import BackArrow from "../components/BackArrow";
+import ChatHeader from "../components/chat/ChatHeader";
 import ChatModal from "../components/modal/ChatModal";
 import Users from "../components/user/Users";
 
@@ -21,8 +21,8 @@ const Chat = () => {
         <div className="chat">
             <Users />
             <div className="chat-container">
-                <BackArrow onIsOpen={handleIsOpen} />
                 <ChatModal isOpen={isOpen} onCloseModal={handleCloseModal} />
+                <ChatHeader onIsOpen={handleIsOpen} />
                 <Message />
                 <MessageInput />
             </div>

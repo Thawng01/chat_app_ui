@@ -7,10 +7,11 @@
     border-radius: 3px;
     cursor: pointer;
     position: relative;
+    transition: all var(--speed) ease;
 }
 
 .user-list-item:hover {
-    background-color: aliceblue;
+    background-color: var(--hover-color);
 }
 
 .user-list-item-container {
@@ -18,15 +19,21 @@
     align-items: center;
 }
 
+.user-list-item-username {
+    user-select: none;
+}
+
 .user-list-item-message {
     color: gray;
     font-size: 13px;
+    user-select: none;
 }
 
 .user-list-item-date {
     color: gray;
     font-size: 13px;
     padding: 0 7px;
+    user-select: none;
 }
 
 .user-list-dots-icon {

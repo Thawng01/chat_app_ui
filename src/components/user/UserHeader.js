@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IoSettingsOutline } from "react-icons/io5";
 
 import "./userHeader.css";
-import Modal from "../modal/Modal";
+import UserModal from "../modal/UserModal";
 import Icon from "../Icon";
 import Image from "../Image";
 
@@ -22,7 +22,7 @@ const UserHeader = () => {
             <Image width={60} height={60} />
             <Icon MyIcon={IoSettingsOutline} onClick={handleClick} />
 
-            <Modal isOpen={isOpen} onCloseModal={handleCloseModal} />
+            <UserModal isOpen={isOpen} onCloseModal={handleCloseModal} />
         </div>
     );
 };

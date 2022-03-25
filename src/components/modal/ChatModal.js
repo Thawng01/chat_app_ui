@@ -15,12 +15,12 @@ const ChatModal = ({ isOpen, onCloseModal }) => {
             customtop={0}
         >
             <ModalItem
-                Icon={MdAccountCircle}
+                icon={MdAccountCircle}
                 title="View profile"
                 onClick={() => navigate("/profile")}
             />
-            <ModalItem Icon={MdBlock} title="Block" />
-            <ModalItem Icon={MdReport} title="Report" />
+            <ModalItem icon={MdBlock} title="Block" />
+            <ModalItem icon={MdReport} title="Report" />
         </ModalContainer>
     );
 };

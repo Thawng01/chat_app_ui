@@ -1,11 +1,7 @@
 .back-arrow {
-    background-color: #fff;
-    height: 65px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 12px;
+    background-color: var(--secondary);
+    height: 85px;
+    padding: 0px 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,13 +16,8 @@
     font-weight: 600;
 }
 
-.back-dot-icon {
-    font-size: 20px;
-    color: var(--primary);
-}
-
 @media screen and (min-width: 900px) {
-    .back-arrow {
+    .chat-header-back-icon-container {
         display: none;
     }
 }

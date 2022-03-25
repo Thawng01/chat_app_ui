@@ -3,11 +3,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    position: fixed;
+    position: sticky;
     bottom: 0;
     width: 100%;
     height: 55px;
-    background-color: #fff;
+    background-color: var(--secondary);
 }
 
 .message-img-icon,
@@ -20,11 +20,11 @@
 .message-input {
     width: 100%;
     margin: 0 10px;
-    padding: 8px;
+    padding: 7px;
     background-color: #fff;
-    border: 1px solid var(--primary);
     border-radius: 5px;
     font-size: 16px;
+    border: none;
 }
 
 .message-input:focus {
@@ -33,6 +33,6 @@
 
 @media screen and (min-width: 900px) {
     .message-input-container {
-        width: 68%;
+        width: 100%;
     }
 }

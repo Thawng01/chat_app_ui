@@ -13,6 +13,7 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     font-size: 16px;
+    user-select: none;
 }
 
 .message-item-created {
@@ -20,6 +21,7 @@
     color: gray;
     margin-left: 20px;
     font-style: italic;
+    user-select: none;
 }
 
 @media screen and (min-width: 550px) {

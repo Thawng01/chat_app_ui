@@ -22,9 +22,3 @@
 .search-result-item-username {
     margin-left: 8px;
 }
-
-@media screen and (min-width: 900px) {
-    .search-result-item-container {
-        height: calc(100vh - 110px);
-    }
-}

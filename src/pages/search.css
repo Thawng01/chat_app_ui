@@ -3,7 +3,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
     height: 100vh;
     z-index: 9;
     display: flex;
@@ -17,11 +16,6 @@
 }
 
 @media screen and (min-width: 900px) {
-    .search {
-        height: calc(100vh - 65px);
-        /* top: 65px; */
-    }
-
     .search-container {
         width: 50%;
     }

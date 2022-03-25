@@ -14,7 +14,11 @@ const Profile = () => {
         <div className="profile-container">
             <div className="profile">
                 <div className="profile-icon-container">
-                    <Icon MyIcon={MdArrowBack} onClick={handleNavigation} />
+                    <Icon
+                        MyIcon={MdArrowBack}
+                        backgroundColor="#f1f1f1"
+                        onClick={handleNavigation}
+                    />
                 </div>
                 <Image width={80} height={80} />
                 <div className="profile-detail-container">

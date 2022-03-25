@@ -2,23 +2,19 @@
     flex: 1;
     flex-direction: column;
     height: 100vh;
-    padding: 0 10px;
     overflow: auto;
     position: relative;
+    background-color: var(--secondary);
 }
 
 .user-header-body-wrapper {
-    height: calc(100vh - 80px);
+    padding: 0 10px;
+    height: calc(100vh - 75px);
     overflow: auto;
 }
 
 @media screen and (min-width: 900px) {
     .user {
         flex: 0.3;
-        height: calc(100vh - 65px);
-    }
-
-    .user-header-body-wrapper {
-        height: calc(100vh - 145px);
     }
 }

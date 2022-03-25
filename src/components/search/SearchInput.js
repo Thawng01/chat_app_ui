@@ -24,7 +24,11 @@ const SearchInput = ({ onValueChange }) => {
 
     return (
         <div className="search-inner-container">
-            <Icon MyIcon={IoArrowBack} onClick={handleNavigation} />
+            <Icon
+                MyIcon={IoArrowBack}
+                backgroundColor="#f1f1f1"
+                onClick={handleNavigation}
+            />
             <div className="search-input-container">
                 <input
                     ref={ref}

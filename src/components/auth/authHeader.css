@@ -1,0 +1,22 @@
+.auth-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.auth-sign-in {
+    margin-right: 10px;
+}
+
+.auth-sign-up,
+.auth-sign-in {
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    color: #fff;
+}
+
+.auth-sign-up {
+    margin-left: 10px;
+}
