@@ -1,37 +1,51 @@
+import { memo } from "react";
+
 import "./messageItem.css";
 import useNaviagtion from "../../hook/useNavigation";
 import Image from "../Image";
+import useToken from "../../hook/useToken";
+import formatDate from "../formatDate";
+import useMyContext from "../../hook/useMyContext";
 
 const MessageItem = ({ message }) => {
     const navigate = useNaviagtion();
+    const me = useToken(); // current logged-in user id
+    const { dark } = useMyContext();
+
     const handleNavigation = () => navigate("/profile");
+    const sentAt = new Date(message?.sentAt).getTime();
+
+    let isSender = me === message.sender;
 
     return (
         <div
             className="message-item"
             style={{
-                justifyContent: message.current ? "flex-end" : "flex-start",
+                justifyContent: isSender ? "flex-end" : "flex-start",
             }}
         >
-            {!message.current && <Image onClick={handleNavigation} />}
+            {!isSender && <Image onClick={handleNavigation} />}
             <div className="message-item-content-container">
                 <p
-                    className="message-item-content"
+                    className={`message-item-content ${
+                        isSender ? "sender" : ""
+                    } `}
                     style={{
-                        color: message.current ? "#fff" : "#000",
-                        backgroundColor: message.current
-                            ? "#ff0080"
-                            : "#f1f1f1",
-                        borderTopLeftRadius: message.current ? 20 : 0,
-                        borderTopRightRadius: message.current ? 0 : 20,
+                        backgroundColor: dark ? "#333" : "#f1f1f1",
+                        color: dark ? "#fff" : "",
                     }}
                 >
                     {message.message}
                 </p>
-                <span className="message-item-created">3 hours ago</span>
+                <p
+                    className="message-item-created"
+                    style={{ color: dark ? "lightgray" : "gray" }}
+                >
+                    {formatDate(sentAt)}
+                </p>
             </div>
         </div>
     );
 };
 
-export default MessageItem;
+export default memo(MessageItem);

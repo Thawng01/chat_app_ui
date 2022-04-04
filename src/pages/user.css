@@ -8,6 +8,11 @@
     background-color: #fff;
 }
 
+.chat-box-welcome{
+    color: var(--primary);
+    font-size: 27px;
+}
+
 @media screen and (min-width: 900px) {
     .user-chat-welcome {
         display: flex;

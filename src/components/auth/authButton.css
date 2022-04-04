@@ -1,5 +1,5 @@
 .auth-submit-btn {
-    background-color: var(--primary);
+    background-image: linear-gradient(#ff8080, #ff0080);
     width: 90%;
     border: none;
     padding: 10px;

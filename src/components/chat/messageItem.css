@@ -9,18 +9,26 @@
 }
 
 .message-item-content {
-    padding: 7px 10px;
+    padding: 7.5px 12px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    font-size: 16px;
+    border-top-right-radius: 20px;
+    font-size: 0.86rem;
     user-select: none;
+    display: block;
+  
+}
+
+.sender {
+    background-image: linear-gradient(#ff8080, #ff0080);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: #fff
 }
 
 .message-item-created {
     font-size: 11px;
-    color: gray;
-    margin-left: 20px;
-    font-style: italic;
+    margin-left: 6px;
     user-select: none;
 }
 

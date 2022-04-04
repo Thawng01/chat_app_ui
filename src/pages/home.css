@@ -3,7 +3,7 @@
     width: 100vw;
 }
 
-.my-home-enter {
+/* .my-home-enter {
     transform: translateX(110%);
     position: absolute;
     top: 0;
@@ -31,7 +31,7 @@
     transform: translateX(0%);
     transition: all var(--speed) ease;
     opacity: 1;
-}
+} */
 
 @media screen and (min-width: 900px) {
     .home {

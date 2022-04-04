@@ -1,22 +1,18 @@
 .profile-container {
-    position: fixed;
-    background-color: rgba(225, 225, 225, 0.2);
-    width: 100%;
-    height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    height: 100vh;
 }
 
 .profile {
-    width: 100%;
+    width: 100vw;
     height: 100%;
-    padding-top: 30px;
+    padding: 40px 0; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    background-color: #fff;
+     position: relative; 
+    
 }
 
 .profile-icon-container {
@@ -34,28 +30,19 @@
 
 .profile-username {
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .profile-joined-date {
     padding: 6px 0;
     color: gray;
+    display: flex;
+    align-items: center;
 }
 
-.profile-message-btn {
-    background-color: var(--primary);
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-}
+
 
 @media screen and (min-width: 900px) {
-    .profile-container {
-        /* top: 65px; */
-        height: calc(100vh - 65px);
-    }
-
     .profile {
         width: 50%;
     }

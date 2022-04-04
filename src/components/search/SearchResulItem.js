@@ -6,19 +6,27 @@ const SearchResultItem = ({ items }) => {
     const navigate = useNavigation();
 
     let content;
-    if (items.length === 0) {
+    if (items?.length === 0) {
         content = <span>No result</span>;
     } else {
-        content = items.map((item) => {
+        content = items?.map((item) => {
             return (
                 <div
-                    key={item.id}
+                    key={item._id}
                     className="search-result-item"
-                    onClick={() => navigate(`/chat/${item.name}`)}
+                    onClick={() =>
+                        navigate(`/chat/${item.username}`, {
+                            state: {
+                                userId: item._id,
+                                username: item.username,
+                                avatar: item.avatar,
+                            },
+                        })
+                    }
                 >
                     <Image width={55} height={55} />
                     <span className="search-result-item-username">
-                        {item.name}
+                        {item.username}
                     </span>
                 </div>
             );

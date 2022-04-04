@@ -5,16 +5,45 @@ import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import User from "./pages/User";
 import Auth from "./pages/Auth";
+import RequireAuth from "./RequireAuth";
 
 const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />}>
-                <Route index element={<User />} />
+                <Route
+                    index
+                    element={
+                        <RequireAuth>
+                            <User />
+                        </RequireAuth>
+                    }
+                />
                 <Route path="/auth" element={<Auth />} />
-                <Route path="/chat/:user" element={<Chat />} />
-                <Route path="/search" element={<Search />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route
+                    path="/chat/:name"
+                    element={
+                        <RequireAuth>
+                            <Chat />
+                        </RequireAuth>
+                    }
+                />
+                <Route
+                    path="/search"
+                    element={
+                        <RequireAuth>
+                            <Search />
+                        </RequireAuth>
+                    }
+                />
+                <Route
+                    path="/profile"
+                    element={
+                        <RequireAuth>
+                            <Profile />
+                        </RequireAuth>
+                    }
+                />
             </Route>
         </Routes>
     );

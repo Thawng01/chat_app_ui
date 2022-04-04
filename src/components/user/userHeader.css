@@ -5,3 +5,13 @@
     height: 75px;
     padding: 0 10px;
 }
+
+.header-user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-header-username {
+    text-transform: capitalize;
+    font-weight: 600;
+}

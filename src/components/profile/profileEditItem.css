@@ -1,0 +1,35 @@
+.form-groups-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px;
+    border-radius: 4px;
+    margin: 6px 0
+}
+
+
+.form-groups {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.profile-edit-label {
+    font-weight: 600;
+}
+
+.profile-edit-form-input {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid gray;
+    background-color: inherit;
+}
+
+.profile-edit-form-input:focus {
+    outline: none;
+}
+
+.profile-edit-icon {
+    font-size: 25px;
+    color: var(--primary)
+}

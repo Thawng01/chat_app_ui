@@ -1,5 +1,5 @@
 import "./icon.css";
-const Icon = ({ onClick, MyIcon, backgroundColor = "#fff" }) => {
+const Icon = ({ onClick, MyIcon, backgroundColor }) => {
     return (
         <div
             style={{ backgroundColor }}

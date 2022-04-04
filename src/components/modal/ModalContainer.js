@@ -1,6 +1,7 @@
 import { animated, config, useSpring } from "react-spring";
 
 import "./modalContainer.css";
+import useMyContext from "../../hook/useMyContext";
 
 function ModalContainer({
     children,
@@ -14,6 +15,8 @@ function ModalContainer({
         config: config.gentle,
     });
 
+    const { dark } = useMyContext();
+
     return (
         <animated.div
             style={{ top }}
@@ -21,7 +24,11 @@ function ModalContainer({
             onClick={(e) => onCloseModal(e)}
         >
             <animated.div
-                style={{ height: menuHeight, width }}
+                style={{
+                    height: menuHeight,
+                    width,
+                    backgroundColor: dark ? "#000" : "#fff",
+                }}
                 className="user-header-modal"
             >
                 {children}

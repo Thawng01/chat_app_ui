@@ -1,0 +1,86 @@
+
+.profile-info-container {
+    width: 90%;
+    height: 100%;
+    margin:10px 0;
+   position: relative;
+   overflow: auto;
+
+}
+
+.profile-info, .profile-edit{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-info-enter {
+    transform: translateX(-110%);
+    opacity: 0;
+    
+}
+
+.profile-info-enter-active{
+    transform: translateX(0%);
+    transition: all var(--speed) ease;
+    opacity: 1;
+}
+
+.profile-info-exit {
+   transform: translateX(0%);
+   opacity: 1;
+}
+
+.profile-info-exit-active {
+    transform: translateX(-110%);
+    transition: all var(--speed) ease;
+    opacity: 0;
+}
+
+.profile-info-enter-done {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.profile-edit-enter {
+    transform: translateX(110%);
+    opacity: 0;
+}
+
+.profile-edit-enter-active {
+    transform: translateX(0%);
+    transition: all var(--speed) ease;
+    opacity: 1;
+}
+
+.profile-edit-exit {
+transform: translateX(0%);
+opacity: 1;
+position: absolute;
+}
+
+.profile-edit-exit-active {
+    transform: translateX(110%);
+    transition: all var(--speed) ease;
+    opacity: 0;
+}
+
+.profile-edit-enter-done {
+    transform: translateX(0%);
+    transition: all var(--speed) ease;
+    opacity: 1;
+}
+
+
+
+@media screen and (min-width: 400px) {
+    .profile-info-container {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .profile-info-container {
+        width: 60%;
+    }
+}

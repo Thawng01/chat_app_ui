@@ -3,9 +3,17 @@ import useNavigation from "../../hook/useNavigation";
 
 import ModalContainer from "./ModalContainer";
 import ModalItem from "./ModalItem";
+import userApi from "../../api/user";
+import useMe from "../../hook/useMe";
 
-const ChatModal = ({ isOpen, onCloseModal }) => {
+const ChatModal = ({ isOpen, userId, onCloseModal }) => {
     const navigate = useNavigation();
+    const me = useMe();
+
+    const handleToggleBlock = async () =>
+        await userApi.toggleBlock(userId, me?._id);
+
+    const handleNavigation = () => navigate("/profile", { state: userId });
 
     return (
         <ModalContainer
@@ -17,9 +25,13 @@ const ChatModal = ({ isOpen, onCloseModal }) => {
             <ModalItem
                 icon={MdAccountCircle}
                 title="View profile"
-                onClick={() => navigate("/profile")}
+                onClick={handleNavigation}
             />
-            <ModalItem icon={MdBlock} title="Block" />
+            <ModalItem
+                icon={MdBlock}
+                title={me?.blocks?.includes(userId) ? "Unblock" : "Block"}
+                onClick={handleToggleBlock}
+            />
             <ModalItem icon={MdReport} title="Report" />
         </ModalContainer>
     );

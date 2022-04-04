@@ -11,7 +11,7 @@
 }
 
 .user-list-item:hover {
-    background-color: var(--hover-color);
+    background-color: var(--primary);
 }
 
 .user-list-item-container {
@@ -19,25 +19,43 @@
     align-items: center;
 }
 
-.user-list-item-username {
-    user-select: none;
+.user-list-item-username-container {
+    display: flex;
+    align-items: center;
 }
 
-.user-list-item-message {
-    color: gray;
+.user-list-item-username {
+    user-select: none;
+    text-transform: capitalize;
+}
+
+.unread-message-badge-txt {
+    padding: 0 7px;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.unread-message-badge {
+    background-color: var(--primary);
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+}
+
+
+.user-list-item-message,
+.user-list-sender {
     font-size: 13px;
     user-select: none;
 }
 
 .user-list-item-date {
-    color: gray;
-    font-size: 13px;
+    font-size: 11px;
     padding: 0 7px;
     user-select: none;
 }
 
 .user-list-dots-icon {
     font-size: 20px;
-    color: gray;
     cursor: pointer;
 }

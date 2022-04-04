@@ -7,12 +7,11 @@
     bottom: 0;
     width: 100%;
     height: 55px;
-    background-color: var(--secondary);
 }
 
 .message-img-icon,
 .message-send-icon {
-    font-size: 32px;
+    font-size: 35px;
     cursor: pointer;
     color: var(--primary);
 }
@@ -20,15 +19,35 @@
 .message-input {
     width: 100%;
     margin: 0 10px;
-    padding: 7px;
-    background-color: #fff;
-    border-radius: 5px;
+    padding: 7px 10px;
+    border-radius: 25px;
     font-size: 16px;
     border: none;
 }
 
 .message-input:focus {
     outline: none;
+}
+
+
+
+.blocked-message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.blocked-message {
+    padding: 0 10px;
+    color: red;
+}
+
+.blocked-btn {
+    padding: 6px 10px;
+    border: 1.4px solid gray;
+    border-radius: 25px;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 900px) {

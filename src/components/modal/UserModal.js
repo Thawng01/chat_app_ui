@@ -4,42 +4,40 @@ import {
     IoArrowBackOutline,
     IoArrowForward,
 } from "react-icons/io5";
-
 import { CSSTransition } from "react-transition-group";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import "./userModal.css";
 import ModalItem from "./ModalItem";
 import ModalSubItem from "./ModalSubItem";
-import { items } from "./item";
 import ModalContainer from "./ModalContainer";
 import useNavigation from "../../hook/useNavigation";
+import useToken from "../../hook/useToken";
+import Context from "../../context/Context";
 
 const UserModal = ({ isOpen, onCloseModal }) => {
     const [inProp, setInProp] = useState("main");
     const [menuHeight, setMenuHeight] = useState(null);
-    const [data, setData] = useState(items);
 
     const navigate = useNavigation();
+    const me = useToken();
+    const { dark, setDark } = useContext(Context);
 
-    const handleLogout = () => navigate("/auth");
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        navigate("/auth");
+    };
+
+    const handleNavigation = () => {
+        navigate("/profile", { state: me });
+    };
 
     function calcHeight(el) {
         const height = el.offsetHeight + 20;
         setMenuHeight(height);
     }
 
-    const handleToggle = (item) => {
-        const { id } = item;
-        const element = data.find((item) => item.id === id);
-        let status = element.status;
-        if (status === true) {
-            element.status = false;
-        } else {
-            element.status = true;
-        }
-        setData((item) => [...item]);
-    };
+    const handleToggleTheme = () => setDark(!dark);
 
     const handleCloseModal = (e) => {
         onCloseModal(e);
@@ -59,7 +57,11 @@ const UserModal = ({ isOpen, onCloseModal }) => {
                 onEnter={calcHeight}
             >
                 <div className="main">
-                    <ModalItem icon={MdAccountCircle} title="Profile" />
+                    <ModalItem
+                        icon={MdAccountCircle}
+                        title="Profile"
+                        onClick={handleNavigation}
+                    />
                     <ModalItem
                         icon={IoSettingsOutline}
                         title="Setting"
@@ -88,15 +90,10 @@ const UserModal = ({ isOpen, onCloseModal }) => {
                         onClick={() => setInProp("main")}
                     />
 
-                    {data.map((item) => {
-                        return (
-                            <ModalSubItem
-                                key={item.id}
-                                item={item}
-                                onToggle={() => handleToggle(item)}
-                            />
-                        );
-                    })}
+                    <ModalSubItem
+                        title="Change theme"
+                        onToggle={handleToggleTheme}
+                    />
                 </div>
             </CSSTransition>
         </ModalContainer>

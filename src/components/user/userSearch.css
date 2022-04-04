@@ -1,19 +1,17 @@
 .user-search {
     margin-top: 10px;
-    padding: 6px 0px;
+    padding: 6px 10px;
 }
 
 .user-search-container {
-    background-color: #fff;
-    padding: 6px 10px;
-    border-radius: 5px;
+    padding: 5px 10px;
+    border-radius: 25px;
     display: flex;
     align-items: center;
 }
 
 .user-search-icon {
     font-size: 23px;
-    color: gray;
 }
 
 .user-search-input {

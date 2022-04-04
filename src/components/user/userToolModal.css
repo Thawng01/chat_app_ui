@@ -1,5 +1,4 @@
 .user-modal {
-    background-color: #fff;
     position: absolute;
     right: 5px;
     top: 80%;
@@ -19,6 +18,4 @@
     padding: 8px;
     cursor: pointer;
 }
-.user-modal-text:hover {
-    background-color: var(--hover-color);
-}
+

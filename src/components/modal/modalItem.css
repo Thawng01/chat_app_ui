@@ -9,7 +9,8 @@
 }
 
 .modal-item:hover {
-    background-color: aliceblue;
+    background-color: var(--primary);
+    color: #fff
 }
 
 .modal-item-container {

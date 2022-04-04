@@ -1,10 +1,10 @@
-import React from "react";
 import * as Yup from "yup";
 
 import "./login.css";
 import AuthButton from "./AuthButton";
 import AuthFormField from "./AuthFormField";
 import FormContainer from "./FormContainer";
+import useAuth from "../../hook/useAuth";
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label("Email"),
@@ -12,11 +12,14 @@ const validationSchema = Yup.object().shape({
 });
 
 const Login = () => {
+    const { authenticate, error } = useAuth();
+
     return (
         <>
+            <span>{error}</span>
             <FormContainer
                 initialValues={{ email: "", password: "" }}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={(data) => authenticate(data)}
                 validationSchema={validationSchema}
             >
                 <AuthFormField label="Email" type="email" name="email" />

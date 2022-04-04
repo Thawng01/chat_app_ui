@@ -1,48 +1,31 @@
-import React from "react";
-import UserListItem from "./UserListItem";
 import "./userList.css";
-const users = [
-    { id: 1, name: "Salai Lian", message: "Hello nan dam maw" },
-    { id: 2, name: "Salai Thawng", message: "Hello nan dam maw" },
-    { id: 3, name: "Salai Biak", message: "Hello nan dam maw" },
-    {
-        id: 4,
-        name: "Salai Lian",
-        message:
-            "Hello nan dam maw? Kan nih kan dam lio a si ko e. A tha tuk e. Ngandam hi a tha bik ko e. Ma cu si ko e.",
-    },
-    {
-        id: 5,
-        name: "Salai Lian",
-        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
-    },
-    {
-        id: 6,
-        name: "Salai Lian",
-        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
-    },
-
-    {
-        id: 7,
-        name: "Salai Lian",
-        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
-    },
-
-    {
-        id: 8,
-        name: "Salai Lian",
-        message: "Hello nan dam maw? Kan nih kan dam lio a si ko e",
-    },
-];
+import useUserPanel from "../../hook/useUserPanel";
+import UserListItem from "./UserListItem";
 
 const UserList = () => {
-    return (
-        <div className="user-list">
-            {users.map((user, index) => {
-                return <UserListItem key={user.id} user={user} index={index} />;
-            })}
-        </div>
-    );
+    const users = useUserPanel();
+
+    let content;
+
+    if (users?.length === 0) {
+        content = (
+            <div className="no-chat-list">
+                <span>Any user whom you chat will appear here.</span>
+            </div>
+        );
+    } else {
+        content = users?.map((user, index) => {
+            return (
+                <UserListItem
+                    key={user.conversation_id}
+                    userList={user}
+                    index={index}
+                />
+            );
+        });
+    }
+
+    return <div className="user-list">{content}</div>;
 };
 
 export default UserList;

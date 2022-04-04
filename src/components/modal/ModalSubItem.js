@@ -1,34 +1,38 @@
-import React from "react";
-import Icon from "../Icon";
+import { useContext } from "react";
+import { IoMoonOutline } from "react-icons/io5";
 
-import "./modalItem.css";
 import "./modalSubItem.css";
+import Icon from "../Icon";
+import Context from "../../context/Context";
 
-const ModalSubItem = ({ item, onToggle }) => {
+const ModalSubItem = ({ title, onToggle }) => {
     // share style with modal item
-    let status = item.status;
+    const { dark } = useContext(Context);
     return (
         <div className="modal-item" onClick={onToggle}>
             <div className="modal-item-container">
-                <Icon MyIcon={item.icon} backgroundColor="#f1f1f1" />
-                <span>{item.title}</span>
+                <Icon
+                    MyIcon={IoMoonOutline}
+                    backgroundColor={dark ? "#333" : "#f1f1f1"}
+                />
+                <span>{title}</span>
             </div>
             <div
                 className="toggle"
-                style={{ backgroundColor: status ? "#ff0080" : "#fff" }}
+                style={{ backgroundColor: dark ? "#ff0080" : "#fff" }}
             >
                 <span
                     className="toggle-label"
                     style={{
-                        color: status ? "#fff" : "#000",
-                        opacity: status ? 1 : 0,
+                        color: dark ? "#fff" : "#000",
+                        opacity: dark ? 1 : 0,
                     }}
                 >
                     on
                 </span>
                 <span
                     className="toggle-label"
-                    style={{ opacity: status ? 0 : 1 }}
+                    style={{ opacity: dark ? 0 : 1 }}
                 >
                     off
                 </span>
