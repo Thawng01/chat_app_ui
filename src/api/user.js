@@ -4,8 +4,8 @@ const endpoint = "user/";
 
 export const fetchUser = async (id) => await apiClient.get(endpoint + "/" + id);
 
-export const toggleBlock = async (id, me) =>
-    await apiClient.put(endpoint + "block/" + id, { me });
+export const toggleBlock = async (id) =>
+    await apiClient.put(endpoint + "block/" + id);
 
 export const updateUserInfo = async (id, info) =>
     await apiClient.put(endpoint + id, info);

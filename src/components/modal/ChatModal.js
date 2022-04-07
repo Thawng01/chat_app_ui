@@ -8,9 +8,9 @@ import useMe from "../../hook/useMe";
 
 const ChatModal = ({ isOpen, userId, onCloseModal }) => {
     const navigate = useNavigation();
-    const me = useMe();
+    const { me } = useMe();
 
-    const handleToggleBlock = async () => await toggleBlock(userId, me?._id);
+    const handleToggleBlock = async () => await toggleBlock(userId);
 
     const handleNavigation = () => navigate("/profile", { state: userId });
 

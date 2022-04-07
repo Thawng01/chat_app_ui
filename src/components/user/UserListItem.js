@@ -102,8 +102,8 @@ const UserListItem = ({ userList, index }) => {
                             </span>
                         )}
                         <span className="user-list-item-message">
-                            {userList.message.length > w
-                                ? userList.message.slice(0, w) + "..."
+                            {userList.message?.length > w
+                                ? userList.message?.slice(0, w) + "..."
                                 : userList.message}
                         </span>
                         <span className="user-list-item-date">

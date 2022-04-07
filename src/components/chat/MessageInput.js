@@ -3,12 +3,14 @@ import { IoImage, IoArrowForwardCircle } from "react-icons/io5";
 
 import "./messageInput.css";
 import { createMessage, sendImage } from "../../api/message";
-import { toggleBlock } from "../../api/user";
 import useMe from "../../hook/useMe";
 import useMyContext from "../../hook/useMyContext";
+import Error from "../Error";
+import BlockMessage from "./BlockMessage";
 
 const MessageInput = ({ state }) => {
     const [message, setMessage] = useState("");
+    const [error, setError] = useState(null);
 
     const { userId: receiver, blocks } = state;
 
@@ -28,7 +30,11 @@ const MessageInput = ({ state }) => {
     const handleImageChange = async (e) => {
         const message = e.target.files[0];
         const input = { sender, receiver, message };
-        await sendImage(input);
+        try {
+            await sendImage(input);
+        } catch (error) {
+            setError(error.response.data);
+        }
     };
 
     const handleMessageChange = (e) => {
@@ -41,62 +47,70 @@ const MessageInput = ({ state }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!message) return;
         const input = { message, sender, receiver };
-        await createMessage(input);
-        setMessage("");
+        try {
+            await createMessage(input);
+            setMessage("");
+        } catch (error) {
+            setError(error.response.data);
+        }
     };
 
-    const handleUnblock = async () => await toggleBlock(receiver, sender);
+    if (error) {
+        setTimeout(() => setError(null), 3000);
+    }
 
     if (blockUser || blockMe) {
         return (
-            <div className="blocked-message-container">
-                <span className="blocked-message">
-                    {blockMe &&
-                        "Sorry! You can't send any message because this user blocked you."}
-                    {blockUser && "You have blocked this user."}
-                </span>
-                {blockUser && (
-                    <span className="blocked-btn" onClick={handleUnblock}>
-                        Unblock
-                    </span>
-                )}
-            </div>
+            <BlockMessage
+                blockMe={blockMe}
+                blockUser={blockUser}
+                sender={sender}
+                receiver={receiver}
+            />
         );
     }
 
     return (
-        <form
-            className="message-input-container"
-            onSubmit={(e) => handleSubmit(e)}
-        >
-            <IoImage className="message-img-icon" onClick={handleImage} />
-            <input
-                ref={fileRef}
-                type="file"
-                name="image"
-                style={{ display: "none" }}
-                onChange={handleImageChange}
-            />
-            <input
-                type="text"
-                value={message}
-                onChange={handleMessageChange}
-                className="message-input"
-                style={{
-                    backgroundColor: dark ? "#000" : "#fff",
-                    color: dark ? "#fff" : "#000",
-                }}
-                placeholder="Type your text"
-            />
-            <button ref={btnRef} type="submit" style={{ display: "none" }} />
-            <div className="message-send-icon-container">
-                <IoArrowForwardCircle
-                    className="message-send-icon"
-                    onClick={handleSubmitClick}
+        <>
+            <Error error={error} />
+            <form
+                className="message-input-container"
+                onSubmit={(e) => handleSubmit(e)}
+            >
+                <IoImage className="message-img-icon" onClick={handleImage} />
+                <input
+                    ref={fileRef}
+                    type="file"
+                    name="image"
+                    style={{ display: "none" }}
+                    onChange={handleImageChange}
                 />
-            </div>
-        </form>
+                <input
+                    type="text"
+                    value={message}
+                    onChange={handleMessageChange}
+                    className="message-input"
+                    style={{
+                        backgroundColor: dark ? "#000" : "#fff",
+                        color: dark ? "#fff" : "#000",
+                    }}
+                    placeholder="Type your text"
+                />
+                <button
+                    ref={btnRef}
+                    type="submit"
+                    style={{ display: "none" }}
+                />
+                <div className="message-send-icon-container">
+                    <IoArrowForwardCircle
+                        className="message-send-icon"
+                        onClick={handleSubmitClick}
+                    />
+                </div>
+            </form>
+        </>
     );
 };
 

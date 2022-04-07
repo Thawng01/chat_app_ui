@@ -5,6 +5,9 @@ import useMyContext from "../../hook/useMyContext";
 import "./message.css";
 import MessageItem from "./MessageItem";
 import useSocket from "../../hook/useSocket";
+import Loading from "../Loading";
+import NoMessage from "./NoMessage";
+import Error from "./Error";
 
 const Message = ({ userId }) => {
     const divRef = useRef();
@@ -22,15 +25,15 @@ const Message = ({ userId }) => {
 
     let content;
     if (loading) {
-        content = <span>Loading...</span>;
+        content = <Loading />;
     } else if (messages?.length === 0) {
-        content = <span>No message</span>;
+        content = <NoMessage />;
     } else if (messages?.length > 0) {
         content = messages?.map((message) => {
             return <MessageItem key={message._id} message={message} />;
         });
     } else {
-        content = <span>{error}</span>;
+        content = <Error error={error} />;
     }
 
     return (

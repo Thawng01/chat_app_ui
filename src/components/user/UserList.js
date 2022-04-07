@@ -1,6 +1,7 @@
 import "./userList.css";
 import useUserPanel from "../../hook/useUserPanel";
 import UserListItem from "./UserListItem";
+import NoList from "./NoList";
 
 const UserList = () => {
     const { loading, users, error } = useUserPanel();
@@ -10,11 +11,7 @@ const UserList = () => {
     if (loading) {
         content = <span>Loading...</span>;
     } else if (users?.length === 0) {
-        content = (
-            <div className="no-chat-list">
-                <span>Any user whom you chat will appear here.</span>
-            </div>
-        );
+        content = <NoList />;
     } else if (users?.length > 0) {
         content = users?.map((user, index) => {
             return (

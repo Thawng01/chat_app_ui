@@ -1,0 +1,6 @@
+
+.no-chat-list {
+    display: flex;
+    justify-content: center;
+    padding: 6px
+}

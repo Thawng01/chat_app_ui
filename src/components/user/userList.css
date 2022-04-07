@@ -2,11 +2,7 @@
     padding: 10px 0px;
 }
 
-.no-chat-list {
-    display: flex;
-    justify-content: center;
-    padding: 6px
-}
+
 
 ::-webkit-scrollbar {
     width: 0px;
