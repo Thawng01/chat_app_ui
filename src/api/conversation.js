@@ -1,9 +1,5 @@
 import apiClient from "./apiClient";
 
 const endpoint = "conversation/";
-
-const deleteConv = async (id) => await apiClient.delete(endpoint + id);
-
-export default {
-    deleteConv,
-};
+export const fetchUserConv = async (id) => await apiClient.get(endpoint + id);
+export const deleteConv = async (id) => await apiClient.delete(endpoint + id);

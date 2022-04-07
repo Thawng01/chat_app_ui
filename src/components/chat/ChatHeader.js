@@ -14,10 +14,7 @@ const BackArrow = ({ username, avatar, onIsOpen }) => {
     const handleNavigate = () => navigate(-1);
 
     return (
-        <div
-            className="back-arrow"
-            style={{ backgroundColor: dark ? "#333" : "#f1f1f1" }}
-        >
+        <div className="back-arrow">
             <div className="back-arrow-left">
                 <div className="chat-header-back-icon-container">
                     <Icon
@@ -26,7 +23,7 @@ const BackArrow = ({ username, avatar, onIsOpen }) => {
                         backgroundColor={backgroundColor}
                     />
                 </div>
-                <Image avatar={avatar} />
+                <Image height={45} width={45} avatar={avatar} />
                 <span
                     className="chat-active-username"
                     style={{ color: dark ? "#fff" : "#000" }}

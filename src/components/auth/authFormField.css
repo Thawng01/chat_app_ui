@@ -13,7 +13,7 @@
     width: 100%;
     font-size: 16px;
     border-radius: 20px;
-    border: 1px solid gray;
+    border: 1.5px solid gray;
 }
 
 .auth-form-input:focus {

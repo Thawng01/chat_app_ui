@@ -12,7 +12,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const Login = () => {
-    const { authenticate, error } = useAuth();
+    const { authenticate, error, loading } = useAuth();
 
     return (
         <>
@@ -30,7 +30,7 @@ const Login = () => {
                     name="password"
                 />
 
-                <AuthButton text="Login" />
+                <AuthButton text={loading ? "Logging in..." : "Login"} />
             </FormContainer>
         </>
     );

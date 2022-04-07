@@ -16,7 +16,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const Register = () => {
-    const { authenticate, error } = useAuth();
+    const { authenticate, error, loading } = useAuth();
 
     const handleSubmit = async ({ username, email, password }) => {
         const data = { username, email, password };
@@ -49,7 +49,7 @@ const Register = () => {
                     name="cpassword"
                 />
 
-                <AuthButton text="Sign up" />
+                <AuthButton text={loading ? "Signing up..." : "Sign up"} />
             </FormContainer>
         </>
     );

@@ -4,7 +4,7 @@ import { MdAccountCircle, MdEmail, MdHome, MdPhone } from "react-icons/md";
 import "./profileEdit.css";
 import ProfileEditItem from "./ProfileEditItem";
 import Button from "./Button";
-import userApi from "../../api/user";
+import { updateUserInfo } from "../../api/user";
 import { IoLinkOutline } from "react-icons/io5";
 
 const ProfileEdit = ({ user }) => {
@@ -29,7 +29,7 @@ const ProfileEdit = ({ user }) => {
             website,
             address,
         };
-        await userApi.updateUserInfo(user._id, info);
+        await updateUserInfo(user._id, info);
     };
 
     return (

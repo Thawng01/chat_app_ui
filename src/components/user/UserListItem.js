@@ -9,9 +9,10 @@ import Image from "../Image";
 import useToken from "../../hook/useToken";
 import formatDate from "../formatDate";
 import useUser from "../../hook/useUser";
-import convApi from "../../api/conversation";
+import { deleteConv } from "../../api/conversation";
 import useMyContext from "../../hook/useMyContext";
 import useSideContext from "../../hook/useSideContext";
+import { source } from "../../api/apiClient";
 
 const UserListItem = ({ userList, index }) => {
     const [isSender, setIsSender] = useState(false);
@@ -34,6 +35,8 @@ const UserListItem = ({ userList, index }) => {
         if (me === userList?.receiver) {
             getChatUserList(userList.sender);
         }
+
+        return () => source.cancel();
     }, [userList, me, getChatUserList]);
 
     const handleNavigate = () => {
@@ -49,7 +52,7 @@ const UserListItem = ({ userList, index }) => {
 
     const handleRemove = async () => {
         setActiveIndex(null);
-        await convApi.deleteConv(userList?.conversation_id);
+        await deleteConv(userList?.conversation_id);
         navigate("/", { replace: true });
     };
 

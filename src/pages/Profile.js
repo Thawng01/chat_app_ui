@@ -1,19 +1,17 @@
 import { MdArrowBack } from "react-icons/md";
-import { FcCalendar } from "react-icons/fc";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import "./profile.css";
 import Icon from "../components/Icon";
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-
 import useNavigation from "../hook/useNavigation";
-import Image from "../components/Image";
-import formatDate from "../components/formatDate";
 import useUser from "../hook/useUser";
 import useToken from "../hook/useToken";
 import ProfileInfoContainer from "../components/profile/ProfileInfoContainer";
 import Button from "../components/profile/Button";
 import useMyContext from "../hook/useMyContext";
+import ProfileHeader from "../components/profile/ProfileHeader";
+import { source } from "../api/apiClient";
 
 const Profile = () => {
     const [edit, setEdit] = useState(false);
@@ -28,6 +26,7 @@ const Profile = () => {
         if (state) {
             getUser(state);
         }
+        return () => source.cancel();
     }, [state, getUser]);
 
     const handleNavigation = () => navigate(-1);
@@ -46,22 +45,7 @@ const Profile = () => {
                         onClick={handleNavigation}
                     />
                 </div>
-                <Image width={100} height={100} avatar={user?.avatar} />
-                <div className="profile-detail-container">
-                    <span
-                        className="profile-username"
-                        style={{ color: dark ? "#fff" : "#000" }}
-                    >
-                        {user?.username}
-                    </span>
-                    <span className="profile-joined-date">
-                        <span style={{ color: dark ? "lightgray" : "gray" }}>
-                            Joined : {formatDate(user?.joinedAt)}{" "}
-                        </span>
-                        <FcCalendar />
-                    </span>
-                </div>
-
+                <ProfileHeader user={user} />
                 {me === state && (
                     <Button
                         title={edit ? "Return to profile" : "Edit your infos"}

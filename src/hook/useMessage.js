@@ -1,30 +1,28 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect, useCallback } from "react";
 
-import messageApi from "../api/message";
+import { getAllMessages } from "../api/message";
 import apiClient from "../api/apiClient";
 import useToken from "./useToken";
 import { socket } from "../service/socket";
+import { source } from "../api/apiClient";
 
 const useMessage = (userId) => {
     const [messages, setMessages] = useState();
     const [socketMessage, setSocketMessage] = useState();
-    const me = useToken();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-    const source = axios.CancelToken.source();
+    const me = useToken();
 
     useEffect(() => {
         socket.on("getMessage", (data) => {
-            const { message, sender, receiver } = data;
+            const { message, sender, receiver, _id, sentAt } = data;
             setSocketMessage({
                 message,
-                sender,
-                receiver,
-                sentAt: Date.now(),
-                _id:
-                    Date.now() +
-                    Math.round(Math.random() + Date.now()) +
-                    Date.now(),
+                sender: { _id: sender },
+                receiver: { _id: receiver },
+                sentAt,
+                _id,
             });
         });
 
@@ -37,26 +35,32 @@ const useMessage = (userId) => {
         }
     }, [socketMessage, setMessages]);
 
+    const getMessages = useCallback(async () => {
+        try {
+            setLoading(true);
+            let { data } = await getAllMessages(userId, me);
+            setMessages(data);
+            setLoading(false);
+        } catch (error) {
+            setError(error.response.data);
+            setLoading(false);
+        }
+    }, [userId, me]);
+
+    const updateReadStatus = useCallback(async () => {
+        await apiClient.put("message/" + me, { userId }); // userId is sender id
+    }, [me, userId]);
+
     useEffect(() => {
         if (me !== undefined) {
-            getMessages();
             updateReadStatus();
+            getMessages();
         }
 
         return () => source.cancel();
-    }, [userId, me]);
+    }, [me, getMessages, updateReadStatus]);
 
-    const getMessages = async () => {
-        let message = await messageApi.getAllMessages(userId, me);
-        setMessages(message.data);
-    };
-
-    const updateReadStatus = async () => {
-        // userId is sender id
-        await apiClient.put("message/" + me, { userId });
-    };
-
-    return messages;
+    return { messages, getMessages, loading, error };
 };
 
 export default useMessage;

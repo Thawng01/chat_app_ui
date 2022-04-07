@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
-import userApi from "../api/user";
+import { fetchUser } from "../api/user";
 
 const useUser = () => {
     const [user, setUser] = useState();
-    const getUser = async (id) => {
-        const user = await userApi.fetchUser(id);
+    const getUser = useCallback(async (id) => {
+        const user = await fetchUser(id);
         setUser(user.data);
-    };
+    }, []);
 
     return { user, getUser };
 };

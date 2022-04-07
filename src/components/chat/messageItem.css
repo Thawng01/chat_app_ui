@@ -5,7 +5,7 @@
 
 .message-item-content-container {
     max-width: 250px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .message-item-content {
@@ -17,6 +17,14 @@
     user-select: none;
     display: block;
   
+}
+
+.message-image {
+    width: 220px;
+    height: 180px;
+    border-radius: 5px;
+    object-fit: contain;
+    border: 0.1px solid gray;
 }
 
 .sender {

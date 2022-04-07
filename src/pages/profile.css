@@ -14,33 +14,10 @@
      position: relative; 
     
 }
-
 .profile-icon-container {
     position: absolute;
     left: 10px;
 }
-
-.profile-detail-container {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.profile-username {
-    font-weight: 600;
-    text-transform: capitalize;
-}
-
-.profile-joined-date {
-    padding: 6px 0;
-    color: gray;
-    display: flex;
-    align-items: center;
-}
-
-
 
 @media screen and (min-width: 900px) {
     .profile {

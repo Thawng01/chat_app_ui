@@ -1,8 +1,10 @@
+import { memo } from "react";
+
 import { MdAccountCircle } from "react-icons/md";
 
 import "./image.css";
 
-const Image = ({ width = 40, height = 40, avatar, onClick }) => {
+const Image = ({ width = 30, height = 30, avatar, onClick }) => {
     if (!avatar) {
         return (
             <MdAccountCircle
@@ -15,6 +17,7 @@ const Image = ({ width = 40, height = 40, avatar, onClick }) => {
 
     return (
         <img
+            src={avatar}
             style={{ width, height }}
             alt="profile"
             className="user-image"
@@ -23,4 +26,4 @@ const Image = ({ width = 40, height = 40, avatar, onClick }) => {
     );
 };
 
-export default Image;
+export default memo(Image);

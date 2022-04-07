@@ -6,10 +6,7 @@ import "./profileEditItem.css";
 const ProfileEditItem = ({ Icon, value, label, placeholder, onChange }) => {
     const { dark } = useMyContext();
     return (
-        <div
-            className="form-groups-container"
-            style={{ backgroundColor: dark ? "#333" : "#f1f1f1" }}
-        >
+        <div className="form-groups-container">
             <div className="form-groups">
                 <span
                     className="profile-edit-label"

@@ -10,7 +10,7 @@ import useMyContext from "../../hook/useMyContext";
 
 const UserHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const me = useMe();
+    const { me, error } = useMe();
     const { dark } = useMyContext();
 
     const handleCloseModal = (e) => {
@@ -21,26 +21,33 @@ const UserHeader = () => {
 
     const handleClick = () => setIsOpen(!isOpen);
 
-    return (
-        <div className="user-header">
-            <div className="header-user-info">
-                <Image avatar={me?.avatar} width={50} height={50} />
-                <span
-                    className="user-header-username"
-                    style={{ color: dark ? "#fff" : "#000" }}
-                >
-                    {me?.username}
-                </span>
-            </div>
-            <Icon
-                MyIcon={IoSettingsOutline}
-                onClick={handleClick}
-                backgroundColor={dark ? "#000" : "#fff"}
-            />
+    let content;
+    if (error) {
+        content = <span>{error}</span>;
+    } else {
+        content = (
+            <>
+                <div className="header-user-info">
+                    <Image avatar={me?.avatar} width={50} height={50} />
+                    <span
+                        className="user-header-username"
+                        style={{ color: dark ? "#fff" : "#000" }}
+                    >
+                        {me?.username}
+                    </span>
+                </div>
+                <Icon
+                    MyIcon={IoSettingsOutline}
+                    onClick={handleClick}
+                    backgroundColor={dark ? "#000" : "#fff"}
+                />
 
-            <UserModal isOpen={isOpen} onCloseModal={handleCloseModal} />
-        </div>
-    );
+                <UserModal isOpen={isOpen} onCloseModal={handleCloseModal} />
+            </>
+        );
+    }
+
+    return <div className="user-header">{content}</div>;
 };
 
 export default UserHeader;

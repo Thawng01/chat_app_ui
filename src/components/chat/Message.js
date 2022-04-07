@@ -4,29 +4,42 @@ import useMyContext from "../../hook/useMyContext";
 
 import "./message.css";
 import MessageItem from "./MessageItem";
+import useSocket from "../../hook/useSocket";
 
 const Message = ({ userId }) => {
     const divRef = useRef();
-    const messages = useMessage(userId);
+    const { messages, loading, error } = useMessage(userId);
 
     const { dark } = useMyContext();
+    useSocket(userId);
 
     useEffect(() => {
         divRef.current.scrollTo({
             top: divRef.current.scrollHeight,
             behavior: "smooth",
         });
-    }, [messages]);
+    }, [messages, loading]);
+
+    let content;
+    if (loading) {
+        content = <span>Loading...</span>;
+    } else if (messages?.length === 0) {
+        content = <span>No message</span>;
+    } else if (messages?.length > 0) {
+        content = messages?.map((message) => {
+            return <MessageItem key={message._id} message={message} />;
+        });
+    } else {
+        content = <span>{error}</span>;
+    }
 
     return (
         <div
             className="message"
-            style={{ backgroundColor: dark ? "#000" : "#fff" }}
             ref={divRef}
+            style={{ backgroundColor: dark ? "#000" : "#fff" }}
         >
-            {messages?.map((message) => {
-                return <MessageItem key={message._id} message={message} />;
-            })}
+            {content}
         </div>
     );
 };

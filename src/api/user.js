@@ -2,19 +2,16 @@ import apiClient from "./apiClient";
 
 const endpoint = "user/";
 
-const fetchUserConv = async (id) => await apiClient.get("conversation/" + id);
+export const fetchUser = async (id) => await apiClient.get(endpoint + "/" + id);
 
-const fetchUser = async (id) => await apiClient.get(endpoint + "/" + id);
-
-const toggleBlock = async (id, me) =>
+export const toggleBlock = async (id, me) =>
     await apiClient.put(endpoint + "block/" + id, { me });
 
-const updateUserInfo = async (id, info) =>
+export const updateUserInfo = async (id, info) =>
     await apiClient.put(endpoint + id, info);
 
-export default {
-    fetchUserConv,
-    fetchUser,
-    toggleBlock,
-    updateUserInfo,
+export const updateUserProfile = async (id, avatar) => {
+    const form = new FormData();
+    form.append("avatar", avatar);
+    await apiClient.put(`${endpoint}profile/${id}`, form);
 };

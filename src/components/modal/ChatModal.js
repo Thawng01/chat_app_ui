@@ -3,15 +3,14 @@ import useNavigation from "../../hook/useNavigation";
 
 import ModalContainer from "./ModalContainer";
 import ModalItem from "./ModalItem";
-import userApi from "../../api/user";
+import { toggleBlock } from "../../api/user";
 import useMe from "../../hook/useMe";
 
 const ChatModal = ({ isOpen, userId, onCloseModal }) => {
     const navigate = useNavigation();
     const me = useMe();
 
-    const handleToggleBlock = async () =>
-        await userApi.toggleBlock(userId, me?._id);
+    const handleToggleBlock = async () => await toggleBlock(userId, me?._id);
 
     const handleNavigation = () => navigate("/profile", { state: userId });
 

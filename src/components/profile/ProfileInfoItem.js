@@ -4,10 +4,7 @@ import "./profileInfoItem.css";
 const ProfileInfoItem = ({ label, value, Icon }) => {
     const { dark } = useMyContext();
     return (
-        <div
-            className="profile-info-item-container"
-            style={{ backgroundColor: dark ? "#333" : "#f1f1f1" }}
-        >
+        <div className="profile-info-item-container">
             <div className="profile-info-text">
                 <p
                     className="profile-info-label"

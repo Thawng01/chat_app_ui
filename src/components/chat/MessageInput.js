@@ -2,34 +2,33 @@ import { useRef, useState } from "react";
 import { IoImage, IoArrowForwardCircle } from "react-icons/io5";
 
 import "./messageInput.css";
-import messageApi from "../../api/message";
-import userApi from "../../api/user";
-import useSocket from "../../hook/useSocket";
+import { createMessage, sendImage } from "../../api/message";
+import { toggleBlock } from "../../api/user";
 import useMe from "../../hook/useMe";
-import { socket } from "../../service/socket";
 import useMyContext from "../../hook/useMyContext";
 
 const MessageInput = ({ state }) => {
     const [message, setMessage] = useState("");
 
     const { userId: receiver, blocks } = state;
-    const me = useMe();
-    const sender = me?._id;
-    const blockMe = blocks?.includes(sender);
-    const blockUser = me?.blocks?.includes(receiver);
 
     const fileRef = useRef();
     const btnRef = useRef();
     const { dark } = useMyContext();
 
-    useSocket(receiver);
+    const { me } = useMe();
+    const sender = me?._id;
+    const blockMe = blocks?.includes(sender);
+    const blockUser = me?.blocks?.includes(receiver);
 
     const handleImage = () => {
         fileRef.current.click();
     };
 
-    const handleImageChange = (e) => {
-        console.log(e.target.files[0].name);
+    const handleImageChange = async (e) => {
+        const message = e.target.files[0];
+        const input = { sender, receiver, message };
+        await sendImage(input);
     };
 
     const handleMessageChange = (e) => {
@@ -42,14 +41,12 @@ const MessageInput = ({ state }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        socket.emit("sendMessage", { sender, receiver, message });
         const input = { message, sender, receiver };
+        await createMessage(input);
         setMessage("");
-        await messageApi.createMessage(input);
     };
 
-    const handleUnblock = async () =>
-        await userApi.toggleBlock(receiver, sender);
+    const handleUnblock = async () => await toggleBlock(receiver, sender);
 
     if (blockUser || blockMe) {
         return (
@@ -71,13 +68,13 @@ const MessageInput = ({ state }) => {
     return (
         <form
             className="message-input-container"
-            style={{ backgroundColor: dark ? "#333" : "#f1f1f1" }}
             onSubmit={(e) => handleSubmit(e)}
         >
             <IoImage className="message-img-icon" onClick={handleImage} />
             <input
                 ref={fileRef}
                 type="file"
+                name="image"
                 style={{ display: "none" }}
                 onChange={handleImageChange}
             />
