@@ -9,11 +9,11 @@
 }
 
 .auth-form-input {
-    padding: 8px 10px;
+    padding: 10px;
     width: 100%;
     font-size: 16px;
     border-radius: 20px;
-    border: 1.5px solid gray;
+    border: 1px solid gray;
 }
 
 .auth-form-input:focus {
@@ -24,5 +24,9 @@
 @media screen and (min-width: 430px) {
     .auth-form-group {
         width: 70%;
+    }
+
+    .auth-form-input {
+        padding:  8px 10px;
     }
 }
