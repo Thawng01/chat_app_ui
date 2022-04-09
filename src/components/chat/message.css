@@ -3,6 +3,17 @@
     padding: 0 5px;
     margin: 0;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+}
+
+/* to make work overflow scroll in flex box, set flex-start to justify-content
+(if flex-direction: column) in container and give first child margin-top: auto 
+like below. so it push the rest of the item to bottom of the container
+*/
+.message > :first-child {
+    margin-top: auto;
 }
 
 

@@ -2,9 +2,9 @@ import { useContext } from "react";
 import Context from "../context/Context";
 
 const useMyContext = () => {
-    const { auth, dark, setAuth, setDark } = useContext(Context);
+    const { dark, setDark } = useContext(Context);
 
-    return { auth, setAuth, dark, setDark };
+    return { dark, setDark };
 };
 
 export default useMyContext;

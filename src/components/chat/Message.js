@@ -7,7 +7,7 @@ import MessageItem from "./MessageItem";
 import useSocket from "../../hook/useSocket";
 import Loading from "../Loading";
 import NoMessage from "./NoMessage";
-import Error from "./Error";
+import Error from "../Error";
 
 const Message = ({ userId }) => {
     const divRef = useRef();

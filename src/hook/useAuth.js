@@ -1,31 +1,27 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-import useMyContext from "./useMyContext";
 import apiClient from "../api/apiClient";
+import useNavigation from "./useNavigation";
 
 const useAuth = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const { setAuth } = useMyContext();
 
-    const navigate = useNavigate();
+    const navigate = useNavigation();
 
     async function authenticate(info, register) {
         try {
             setLoading(true);
-            setTimeout(async () => {
-                let result;
-                if (register) {
-                    result = await apiClient.post("/user/new", info);
-                } else {
-                    result = await apiClient.post("auth", info);
-                }
-                localStorage.setItem("token", result.data);
-                setAuth(result.data);
-                setLoading(false);
-                navigate("/", { replace: true });
-            }, 3000);
+
+            let result;
+            if (register) {
+                result = await apiClient.post("/user/new", info);
+            } else {
+                result = await apiClient.post("auth", info);
+            }
+            localStorage.setItem("token", result.data);
+            setLoading(false);
+            navigate("/", { replace: true });
         } catch (error) {
             setError(error.response.data);
             setLoading(false);

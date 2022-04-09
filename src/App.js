@@ -1,20 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AppRoutes from "./AppRoutes";
 import Context from "./context/Context";
 
 const App = () => {
-    const [auth, setAuth] = useState(false);
     const [dark, setDark] = useState(false);
 
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (token) {
-            setAuth(true);
-        }
-    }, [setAuth]);
-
     return (
-        <Context.Provider value={{ auth, dark, setDark, setAuth }}>
+        <Context.Provider value={{ dark, setDark }}>
             <AppRoutes />
         </Context.Provider>
     );

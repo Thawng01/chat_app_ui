@@ -20,7 +20,7 @@ const useUser = () => {
             const length = result?.data?.length;
             if (length > 0) {
                 for (let i = 0; i < length; i++) {
-                    let response = await getMessage(result.data[i]._id);
+                    let response = await getMessage(result.data[i]._id, me);
                     setUsers((prev) => [...prev, response.data]);
                 }
             }

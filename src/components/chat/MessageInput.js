@@ -5,7 +5,7 @@ import "./messageInput.css";
 import { createMessage, sendImage } from "../../api/message";
 import useMe from "../../hook/useMe";
 import useMyContext from "../../hook/useMyContext";
-import Error from "../Error";
+import FloatError from "../FloatError";
 import BlockMessage from "./BlockMessage";
 
 const MessageInput = ({ state }) => {
@@ -57,9 +57,7 @@ const MessageInput = ({ state }) => {
         }
     };
 
-    if (error) {
-        setTimeout(() => setError(null), 3000);
-    }
+    const handleErrorDismiss = () => setError(null);
 
     if (blockUser || blockMe) {
         return (
@@ -74,7 +72,7 @@ const MessageInput = ({ state }) => {
 
     return (
         <>
-            <Error error={error} />
+            <FloatError error={error} onDismiss={handleErrorDismiss} />
             <form
                 className="message-input-container"
                 onSubmit={(e) => handleSubmit(e)}

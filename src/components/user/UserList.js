@@ -2,6 +2,8 @@ import "./userList.css";
 import useUserPanel from "../../hook/useUserPanel";
 import UserListItem from "./UserListItem";
 import NoList from "./NoList";
+import Loading from "../Loading";
+import Error from "../Error";
 
 const UserList = () => {
     const { loading, users, error } = useUserPanel();
@@ -9,8 +11,8 @@ const UserList = () => {
     let content;
 
     if (loading) {
-        content = <span>Loading...</span>;
-    } else if (users?.length === 0) {
+        content = <Loading />;
+    } else if (users?.length === 0 || users === null) {
         content = <NoList />;
     } else if (users?.length > 0) {
         content = users?.map((user, index) => {
@@ -23,7 +25,7 @@ const UserList = () => {
             );
         });
     } else {
-        content = <span>{error}</span>;
+        content = <Error error={error} />;
     }
 
     return <div className="user-list">{content}</div>;

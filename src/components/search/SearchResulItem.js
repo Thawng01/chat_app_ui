@@ -20,6 +20,7 @@ const SearchResultItem = ({ items }) => {
                                 userId: item._id,
                                 username: item.username,
                                 avatar: item.avatar,
+                                blocks: item.blocks,
                             },
                         })
                     }

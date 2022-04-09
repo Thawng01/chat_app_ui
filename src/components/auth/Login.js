@@ -5,6 +5,7 @@ import AuthButton from "./AuthButton";
 import AuthFormField from "./AuthFormField";
 import FormContainer from "./FormContainer";
 import useAuth from "../../hook/useAuth";
+import Error from "./Error";
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label("Email"),
@@ -16,7 +17,7 @@ const Login = () => {
 
     return (
         <>
-            <span>{error}</span>
+            <Error error={error} visible={error ? true : false} />
             <FormContainer
                 initialValues={{ email: "", password: "" }}
                 onSubmit={(data) => authenticate(data)}

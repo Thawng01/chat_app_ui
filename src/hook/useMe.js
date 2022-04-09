@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { source } from "../api/apiClient";
+import { socket } from "../service/socket";
 
 import fetchMe from "../api/auth";
 import useToken from "./useToken";
@@ -9,6 +10,13 @@ const useMe = () => {
     const [error, setError] = useState(null);
 
     const id = useToken();
+
+    const handleUpdateUser = useCallback((user) => setMe(user), []);
+
+    useEffect(() => {
+        socket.on("updateUser", handleUpdateUser);
+        return () => socket.off("updateUser", handleUpdateUser);
+    }, [handleUpdateUser]);
 
     const getMe = useCallback(async () => {
         try {
