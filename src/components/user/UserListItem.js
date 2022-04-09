@@ -1,5 +1,5 @@
 import { IoEllipsisVertical } from "react-icons/io5";
-import { useState, memo } from "react";
+import { memo } from "react";
 
 import "./userListItem.css";
 import UserToolModal from "./UserToolModal";
@@ -19,7 +19,7 @@ const UserListItem = ({ userList, index }) => {
     const { dark } = useMyContext();
     const me = useToken();
 
-    let sender = me == userList.sender ? true : false;
+    let sender = me === userList.sender ? true : false;
     let sentAt = new Date(userList?.sentAt).getTime();
 
     const handleNavigate = () => {

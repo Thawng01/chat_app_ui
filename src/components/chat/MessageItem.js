@@ -47,7 +47,11 @@ const MessageItem = ({ message }) => {
                         {message.message}
                     </p>
                 ) : (
-                    <img className="message-image" src={message.message} />
+                    <img
+                        className="message-image"
+                        alt=""
+                        src={message.message}
+                    />
                 )}
 
                 <p
