@@ -75,6 +75,7 @@ const MessageInput = ({ state }) => {
             <FloatError error={error} onDismiss={handleErrorDismiss} />
             <form
                 className="message-input-container"
+                style={{ backgroundColor: dark ? "#333" : "#f1f1f1" }}
                 onSubmit={(e) => handleSubmit(e)}
             >
                 <IoImage className="message-img-icon" onClick={handleImage} />
