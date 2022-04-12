@@ -15,7 +15,7 @@
 }
 
 .auth-container {
-    width: 100%;
+    width: 95%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -32,9 +32,10 @@
     font-size: 25px;
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     padding: 15px;
-    line-height: 50px;
+    line-height: 40px;
     text-align: center;
     user-select: none;
+    font-weight: 700;
 }
 
 .auth-form-container {
@@ -130,7 +131,6 @@
     .auth-container {
         flex-direction: row;
         align-items: center;
-        /* justify-content: center; */
     }
 
     .auth-text-container {
