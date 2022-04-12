@@ -53,6 +53,7 @@ const MessageInput = ({ state }) => {
             await createMessage(input);
             setMessage("");
         } catch (error) {
+            console.log(error);
             setError(error.response.data);
         }
     };

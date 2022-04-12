@@ -15,6 +15,7 @@ const useMessage = (receiver) => {
 
     useEffect(() => {
         socket.on("getMessage", (data) => {
+            console.log(data);
             const { message, sender, receiver, _id, sentAt } = data;
             setSocketMessage({
                 message,
