@@ -11,6 +11,7 @@ import formatDate from "../formatDate";
 import { deleteConv } from "../../api/conversation";
 import useMyContext from "../../hook/useMyContext";
 import useSideContext from "../../hook/useSideContext";
+import { socket } from "../../service/socket";
 
 const UserListItem = ({ userList, index }) => {
     const { activeIndex, setActiveIndex } = useSideContext();

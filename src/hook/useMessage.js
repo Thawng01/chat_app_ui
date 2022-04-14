@@ -26,7 +26,7 @@ const useMessage = (receiver) => {
         });
 
         return () => socket.off("getMessage");
-    }, [setSocketMessage]);
+    }, []);
 
     useEffect(() => {
         if (socketMessage) {

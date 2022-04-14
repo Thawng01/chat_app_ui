@@ -48,12 +48,13 @@ const MessageInput = ({ state }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!message) return;
+
         const input = { message, sender, receiver };
+
         try {
             await createMessage(input);
             setMessage("");
         } catch (error) {
-            console.log(error);
             setError(error.response.data);
         }
     };
