@@ -1,34 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 import "./profileInfoContainer.css";
 import ProfileInfo from "./ProfileInfo";
 import ProfileEdit from "./ProfileEdit";
-import { source } from "../../api/apiClient";
+
 import useUser from "../../hook/useUser";
 import useToken from "../../hook/useToken";
 import ProfileHeader from "./ProfileHeader";
 import Button from "./Button";
 
-const ProfileInfoContainer = ({ state }) => {
+const ProfileInfoContainer = ({ id }) => {
     const [edit, setEdit] = useState(false);
 
-    const { getUser, user } = useUser();
+    const { user } = useUser(id);
     const me = useToken();
-
-    useEffect(() => {
-        if (state) {
-            getUser(state);
-        }
-        return () => source.cancel();
-    }, [state, getUser]);
 
     const handleEdit = () => setEdit(!edit);
 
     return (
         <>
             <ProfileHeader user={user} />
-            {me === state && (
+            {me === id && (
                 <Button
                     title={edit ? "Return to profile" : "Edit your infos"}
                     onClick={handleEdit}

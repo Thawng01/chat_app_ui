@@ -4,15 +4,17 @@ import useNavigation from "../../hook/useNavigation";
 import ModalContainer from "./ModalContainer";
 import ModalItem from "./ModalItem";
 import { toggleBlock } from "../../api/user";
-import useMe from "../../hook/useMe";
+import useUser from "../../hook/useUser";
+import useToken from "../../hook/useToken";
 
 const ChatModal = ({ isOpen, userId, onCloseModal }) => {
     const navigate = useNavigation();
-    const { me } = useMe();
 
+    const me = useToken();
+    const { user } = useUser(me);
     const handleToggleBlock = async () => await toggleBlock(userId);
 
-    const handleNavigation = () => navigate("/profile", { state: userId });
+    const handleNavigation = () => navigate(`/profile/${userId}`);
 
     return (
         <ModalContainer
@@ -28,7 +30,7 @@ const ChatModal = ({ isOpen, userId, onCloseModal }) => {
             />
             <ModalItem
                 icon={MdBlock}
-                title={me?.blocks?.includes(userId) ? "Unblock" : "Block"}
+                title={user?.blocks?.includes(userId) ? "Unblock" : "Block"}
                 onClick={handleToggleBlock}
             />
             <ModalItem icon={MdReport} title="Report" />

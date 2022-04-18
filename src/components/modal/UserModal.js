@@ -29,7 +29,7 @@ const UserModal = ({ isOpen, onCloseModal }) => {
     };
 
     const handleNavigation = () => {
-        navigate("/profile", { state: me });
+        navigate(`/profile/${me}`);
     };
 
     function calcHeight(el) {

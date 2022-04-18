@@ -4,7 +4,6 @@ import useMyContext from "../../hook/useMyContext";
 
 import "./message.css";
 import MessageItem from "./MessageItem";
-import useSocket from "../../hook/useSocket";
 import Loading from "../Loading";
 import NoMessage from "./NoMessage";
 import Error from "../Error";
@@ -14,7 +13,6 @@ const Message = ({ userId }) => {
     const { messages, loading, error } = useMessage(userId);
 
     const { dark } = useMyContext();
-    useSocket(userId);
 
     useEffect(() => {
         divRef.current.scrollTo({

@@ -2,7 +2,7 @@
     background-image: linear-gradient(#ff8080, #ff0080);
     width: 90%;
     border: none;
-    padding: 12px;
+    padding: .8rem;
     border-radius: 20px;
     color: #fff;
     font-weight: 600;
@@ -13,6 +13,5 @@
 @media screen and (min-width: 430px) {
     .auth-submit-btn {
         width: 70%;
-        padding: 10px;
     }
 }

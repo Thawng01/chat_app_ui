@@ -1,7 +1,9 @@
 import { useState } from "react";
+import jwtDecode from "jwt-decode";
 
 import apiClient from "../api/apiClient";
 import useNavigation from "./useNavigation";
+import socket from "../service/socket";
 
 const useAuth = () => {
     const [error, setError] = useState(null);
@@ -20,6 +22,8 @@ const useAuth = () => {
                 result = await apiClient.post("auth", info);
             }
             localStorage.setItem("token", result.data);
+            const decoded = jwtDecode(result.data);
+            socket.emit("loggedIn", decoded.id);
             setLoading(false);
             navigate("/", { replace: true });
         } catch (error) {

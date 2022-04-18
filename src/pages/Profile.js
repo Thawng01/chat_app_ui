@@ -1,5 +1,5 @@
 import { MdArrowBack } from "react-icons/md";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import "./profile.css";
 import Icon from "../components/Icon";
@@ -10,7 +10,7 @@ import useMyContext from "../hook/useMyContext";
 
 const Profile = () => {
     const navigate = useNavigation();
-    const { state } = useLocation();
+    const { id } = useParams();
     const { dark } = useMyContext();
 
     const handleNavigation = () => navigate(-1);
@@ -29,7 +29,7 @@ const Profile = () => {
                     />
                 </div>
 
-                <ProfileInfoContainer state={state} />
+                <ProfileInfoContainer id={id} />
             </div>
         </div>
     );

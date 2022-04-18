@@ -17,11 +17,6 @@ const Auth = () => {
             <AuthHeader onSignUp={handleSignUp} onSignIn={handleSignIn} />
             <div className="auth-outer-container">
                 <div className="auth-container">
-                    <div className="auth-text-container">
-                        <p className="auth-text">
-                            Stay connected with your friends around the world.
-                        </p>
-                    </div>
                     <div className="auth-form-container">
                         <CSSTransition
                             in={!isRegister}
@@ -46,6 +41,10 @@ const Auth = () => {
                         </CSSTransition>
                     </div>
                 </div>
+
+                <p className="auth-text">
+                    Stay connected with your friends around the world.
+                </p>
             </div>
         </div>
     );

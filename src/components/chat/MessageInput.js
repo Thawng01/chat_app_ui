@@ -3,10 +3,11 @@ import { IoImage, IoArrowForwardCircle } from "react-icons/io5";
 
 import "./messageInput.css";
 import { createMessage, sendImage } from "../../api/message";
-import useMe from "../../hook/useMe";
 import useMyContext from "../../hook/useMyContext";
 import FloatError from "../FloatError";
 import BlockMessage from "./BlockMessage";
+import useUser from "../../hook/useUser";
+import useToken from "../../hook/useToken";
 
 const MessageInput = ({ state }) => {
     const [message, setMessage] = useState("");
@@ -18,10 +19,11 @@ const MessageInput = ({ state }) => {
     const btnRef = useRef();
     const { dark } = useMyContext();
 
-    const { me } = useMe();
-    const sender = me?._id;
+    const me = useToken();
+    const { user } = useUser(me);
+    const sender = user?._id;
     const blockMe = blocks?.includes(sender);
-    const blockUser = me?.blocks?.includes(receiver);
+    const blockUser = user?.blocks?.includes(receiver);
 
     const handleImage = () => {
         fileRef.current.click();
@@ -48,9 +50,7 @@ const MessageInput = ({ state }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!message) return;
-
         const input = { message, sender, receiver };
-
         try {
             await createMessage(input);
             setMessage("");

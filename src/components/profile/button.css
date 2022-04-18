@@ -2,7 +2,7 @@
 .profile-info-btn {
     background-image: linear-gradient(#ff8080, #ff0080);
     border: none;
-    padding: 8px 12px;
+    padding: .7rem;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;

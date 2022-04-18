@@ -1,23 +1,38 @@
 import { useCallback, useEffect, useState } from "react";
 
 import { fetchUser } from "../api/user";
-import { socket } from "../service/socket";
+import { source } from "../api/apiClient";
+import socket from "../service/socket";
 
-const useUser = () => {
+const useUser = (userId) => {
     const [user, setUser] = useState();
-    const getUser = useCallback(async (id) => {
-        const user = await fetchUser(id);
-        setUser(user.data);
-    }, []);
+    const [error, setError] = useState(null);
 
-    const updateUserInfo = useCallback((user) => setUser(user), []);
+    const getUser = useCallback(async () => {
+        try {
+            const user = await fetchUser(userId);
+            setUser(user.data);
+        } catch (error) {
+            setError(error.response.data);
+        }
+    }, [userId]);
 
     useEffect(() => {
-        socket.on("updateUserInfo", updateUserInfo);
-        return () => socket.off("updateUserInfo", updateUserInfo);
-    }, [updateUserInfo]);
+        if (userId !== undefined) {
+            getUser();
+        }
+        return () => source.cancel();
+    }, [getUser, userId]);
 
-    return { user, getUser };
+    useEffect(() => {
+        socket.on("updateUser", (data) => {
+            setUser(data);
+        });
+
+        return () => socket.off("updateUser");
+    }, [setUser]);
+
+    return { user, error };
 };
 
 export default useUser;

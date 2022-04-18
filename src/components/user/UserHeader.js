@@ -5,12 +5,15 @@ import "./userHeader.css";
 import UserModal from "../modal/UserModal";
 import Icon from "../Icon";
 import Image from "../Image";
-import useMe from "../../hook/useMe";
 import useMyContext from "../../hook/useMyContext";
+import useUser from "../../hook/useUser";
+import useToken from "../../hook/useToken";
 
 const UserHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { me, error } = useMe();
+
+    const me = useToken();
+    const { user, error } = useUser(me);
     const { dark } = useMyContext();
 
     const handleCloseModal = (e) => {
@@ -28,12 +31,12 @@ const UserHeader = () => {
         content = (
             <>
                 <div className="header-user-info">
-                    <Image avatar={me?.avatar} width={50} height={50} />
+                    <Image avatar={user?.avatar} width={50} height={50} />
                     <span
                         className="user-header-username"
                         style={{ color: dark ? "#fff" : "#000" }}
                     >
-                        {me?.username}
+                        {user?.username}
                     </span>
                 </div>
                 <Icon

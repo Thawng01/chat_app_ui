@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 
 import { getAllMessages, updateRead } from "../api/message";
 import useToken from "./useToken";
-import { socket } from "../service/socket";
 import { source } from "../api/apiClient";
+import socket from "../service/socket";
 
 const useMessage = (receiver) => {
     const [messages, setMessages] = useState();
@@ -15,13 +15,11 @@ const useMessage = (receiver) => {
 
     useEffect(() => {
         socket.on("getMessage", (data) => {
-            const { message, sender, receiver, _id, sentAt } = data;
+            const { message, sender, receiver } = data;
             setSocketMessage({
                 message,
                 sender: { _id: sender },
                 receiver: { _id: receiver },
-                sentAt,
-                _id,
             });
         });
 
@@ -29,10 +27,14 @@ const useMessage = (receiver) => {
     }, []);
 
     useEffect(() => {
-        if (socketMessage) {
+        if (
+            (socketMessage && sender === socketMessage?.sender._id) ||
+            (receiver === socketMessage?.sender._id &&
+                sender === socketMessage?.receiver._id)
+        ) {
             setMessages((prev) => [...prev, socketMessage]);
         }
-    }, [socketMessage, setMessages]);
+    }, [socketMessage, sender, receiver]);
 
     const getMessages = useCallback(async () => {
         try {

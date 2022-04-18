@@ -11,6 +11,7 @@ import formatDate from "../formatDate";
 import { deleteConv } from "../../api/conversation";
 import useMyContext from "../../hook/useMyContext";
 import useSideContext from "../../hook/useSideContext";
+import socket from "../../service/socket";
 
 const UserListItem = ({ userList, index }) => {
     const { activeIndex, setActiveIndex } = useSideContext();
@@ -23,6 +24,13 @@ const UserListItem = ({ userList, index }) => {
     let sentAt = new Date(userList?.sentAt).getTime();
 
     const handleNavigate = () => {
+        // random id for room
+        // let room = Date.now() + Math.random();
+        // room = room.toString().replace(".", "_");
+
+        // when click on user, create a room inside which logged in user id and userId exists
+        socket.emit("createRoom", { userId: userList.user._id });
+
         navigate(`/chat/${userList.user.username}`, {
             state: {
                 userId: userList.user._id,

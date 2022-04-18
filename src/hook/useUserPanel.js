@@ -15,7 +15,6 @@ const useUser = () => {
     const getUsers = useCallback(async () => {
         try {
             setLoading(true);
-
             const result = await fetchUserConv(me);
             const length = result?.data?.length;
             if (length > 0) {

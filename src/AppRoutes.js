@@ -37,7 +37,7 @@ const AppRoutes = () => {
                     }
                 />
                 <Route
-                    path="/profile"
+                    path="/profile/:id"
                     element={
                         <RequireAuth>
                             <Profile />
