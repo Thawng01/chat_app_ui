@@ -9,11 +9,11 @@
 }
 
 .message-item-content {
-    padding: 7px 12px;
+    padding: 7.5px 12px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
-    font-size: 0.86rem;
+    font-size: 1.2rem;
     user-select: none;
     display: block;
   
